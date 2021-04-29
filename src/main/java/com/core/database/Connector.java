@@ -5,7 +5,12 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Connector {
-    String host, port, databaseName, user, pass;
+    String host;
+    String port;
+    String databaseName;
+    String user;
+    String pass;
+    
     private Connection connection;
     
     public Connector(String host, String port, String databaseName, String user, String pass){
@@ -16,13 +21,13 @@ public class Connector {
         this.pass = pass;
     }
     
-    public void connect() throws SQLException{
-        String url = this.host + ":" + this.port;
-        this.connection = DriverManager.getConnection(url, this.user, this.pass);
-    }
-    
     public Boolean isConnect() throws SQLException{
         return !this.connection.isClosed();
+    }
+
+    public Connection connect() throws SQLException{
+        this.connection = DriverManager.getConnection(this.getUrl(), this.user, this.pass);
+        return this.getConnection();
     }
     
     public void disconnect(){
@@ -31,5 +36,9 @@ public class Connector {
     
     public Connection getConnection(){
         return this.connection;
+    }
+    
+    public String getUrl(){
+        return "jdbc:" + this.host + ":" + this.port + "/" + this.databaseName;
     }
 }
