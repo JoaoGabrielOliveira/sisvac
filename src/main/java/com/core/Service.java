@@ -1,36 +1,62 @@
 package com.core;
 
+import com.core.model.BaseModel;
+import com.core.Extensions;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ArrayList;
-import com.core.model.User;
+import java.lang.reflect.Method;
+import java.lang.reflect.Field;
 
-
-public class Service {
-    public MainOperator operator;
+public class Service<T extends BaseModel> {
+    protected MainOperator operator;
+    protected Class<T> instance;
     
-    public Service(){
+    public Service(Class<T> object){
         this.operator = new MainOperator();
+        this.instance = object;
     }
     
-    public List<User> list() throws SQLException{
-        List<User> list = new ArrayList<>();
+    public List<T> list() throws SQLException{
+        
+        List<T> list = new ArrayList<>();
+        
         ResultSet result = this.operator.feat("SELECT * FROM users");
         
-        while(result.next()){
-            User user = new User();
-            
-            user.setName(result.getString("name"));
-            user.setAge(result.getInt("age"));
-            
-            list.add(user);
+        try{
+            while(result.next()){
+                T obj = this.getInstance().newInstance();
+
+                try{
+                    for(Field field : this.getInstance().getDeclaredFields()){
+                        String fieldName = field.getName();
+                        String column = "set" + Extensions.capitalize(fieldName);
+
+                        Method set = this.getInstance().getMethod(column, field.getType());
+                        set.invoke(obj, result.getString(fieldName));
+                        
+                        list.add(obj);
+                    }
+                }
+                catch(IllegalArgumentException e){
+                    continue;
+                }
+            }
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
         }
         
         return list;
     }
-
-    public MainOperator getOperator(){
+    
+    protected MainOperator getOperator(){
         return this.operator;
+    }
+    
+    protected Class<T> getInstance(){
+        return this.instance;
     }
 }
