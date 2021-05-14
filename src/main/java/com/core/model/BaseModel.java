@@ -5,29 +5,26 @@
  */
 package com.core.model;
 
+import com.core.Extensions;
 import com.core.model.interfaces.IBaseModel;
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class BaseModel<I extends IBaseModel> implements IBaseModel{
     
     
     @Override
-    public void mapToModel(ResultSet map){
-        Method method1, method2;
+    public void mapToModel(ResultSet map) throws ReflectiveOperationException, SQLException{
+        Class<?> selfClass = this.getClass();
         
-        try{    
-            method1 = this.getClass().getMethod("setName", this.getClass());
-            method2 = this.getClass().getMethod("set" + "age" , this.getClass());
+        for(Field field : selfClass.getDeclaredFields()){
+            String fieldName = field.getName();
+            String setMethodName = "set" + Extensions.capitalize(fieldName);
 
-            method1.invoke(this, map.getString("name"));
-            method2.invoke(this, map.getString("age"));
-        }
-        catch(Exception ex){
-            ex.printStackTrace();
+            Method set = selfClass.getMethod(setMethodName, field.getType());
+            set.invoke(this, map.getObject(fieldName, field.getType()));
         }
     }
-    
-    
-    
 }
