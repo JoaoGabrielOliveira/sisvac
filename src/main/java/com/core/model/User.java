@@ -1,6 +1,8 @@
 package com.core.model;
 
-public class User
+import com.core.model.interfaces.IUser;
+
+public class User extends BaseModel<IUser>
 {
     private String name;
     private Integer age;
