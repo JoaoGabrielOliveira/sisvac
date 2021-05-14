@@ -30,15 +30,8 @@ public class Service<T extends BaseModel> {
                 T obj = this.getInstance().newInstance();
 
                 try{
-                    for(Field field : this.getInstance().getDeclaredFields()){
-                        String fieldName = field.getName();
-                        String column = "set" + Extensions.capitalize(fieldName);
-
-                        Method set = this.getInstance().getMethod(column, field.getType());
-                        set.invoke(obj, result.getString(fieldName));
-                        
-                        list.add(obj);
-                    }
+                    obj.mapToModel(result);
+                    list.add(obj);
                 }
                 catch(IllegalArgumentException e){
                     continue;
