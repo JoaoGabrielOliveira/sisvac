@@ -13,7 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class BaseModel<I extends IBaseModel> implements IBaseModel{
-    
+    protected String tableName;
     
     @Override
     public void mapToModel(ResultSet map) throws ReflectiveOperationException, SQLException{
@@ -26,5 +26,16 @@ public class BaseModel<I extends IBaseModel> implements IBaseModel{
             Method set = selfClass.getMethod(setMethodName, field.getType());
             set.invoke(this, map.getObject(fieldName, field.getType()));
         }
+    }
+    
+    public String getTableName(){
+        if(this.tableName == null)
+            this.setTableName(this.getClass().getName());
+
+        return this.tableName;
+    }
+
+    protected void setTableName(String tableName){
+        this.tableName = tableName;
     }
 }
