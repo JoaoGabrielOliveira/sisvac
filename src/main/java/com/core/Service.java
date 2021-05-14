@@ -1,14 +1,10 @@
 package com.core;
 
 import com.core.model.BaseModel;
-import com.core.Extensions;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ArrayList;
-import java.lang.reflect.Method;
-import java.lang.reflect.Field;
 
 public class Service<T extends BaseModel> {
     protected MainOperator operator;
@@ -22,19 +18,17 @@ public class Service<T extends BaseModel> {
     public List<T> list() throws SQLException{
         
         List<T> list = new ArrayList<>();
-        
-        ResultSet result = this.operator.feat("SELECT * FROM users");
-        
+        ResultSet result;
         try{
+            result = this.operator.feat("SELECT * FROM " + this.getNewInstance().getTableName());
             while(result.next()){
-                T obj = this.getInstance().newInstance();
+                T obj = this.getNewInstance();
 
                 try{
                     obj.mapToModel(result);
                     list.add(obj);
                 }
                 catch(IllegalArgumentException e){
-                    continue;
                 }
             }
         }
@@ -51,5 +45,9 @@ public class Service<T extends BaseModel> {
     
     protected Class<T> getInstance(){
         return this.instance;
+    }
+    
+    protected T getNewInstance() throws java.lang.ReflectiveOperationException{
+        return this.getInstance().getConstructor().newInstance();
     }
 }
