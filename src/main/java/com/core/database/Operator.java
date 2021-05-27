@@ -14,26 +14,27 @@ public class Operator {
         this.connector.connect();
         PreparedStatement statement = this.getStatement(sql, params);
 
-        ResultSet result = statement.executeQuery(sql);
+        ResultSet result = statement.executeQuery();
         
         this.connector.disconnect();
         return result;
     }
     
-    public Boolean execute(String sql) throws SQLException {
+    public Boolean execute(String sql,Object... params) throws SQLException {
         this.connector.connect();
-        
-        PreparedStatement statement = this.getStatement(sql);
+                
+        PreparedStatement statement = this.getStatement(sql, params);
 
         Boolean result = statement.execute(sql);
         this.connector.disconnect();
         return result;
     }
     
-    private PreparedStatement getStatement(String sql, Object... params) throws SQLException{
+    private PreparedStatement getStatement(String sql, Object[] params) throws SQLException{
         PreparedStatement statement = this.connector.getConnection().prepareStatement(sql);
-        for(int i = 0; i < params.length; i++){
-            statement.setObject(i,params[i]);
+        
+        for(int i = 0, j = 1; i < params.length; i++, j++){
+            statement.setObject(j, params[i]);
         }
         return statement;
     }
