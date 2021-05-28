@@ -1,4 +1,4 @@
-package com.core.model.interfaces;
+package com.core.model;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 public interface IBaseModel {

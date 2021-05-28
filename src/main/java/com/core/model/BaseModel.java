@@ -6,7 +6,6 @@
 package com.core.model;
 
 import com.core.Extensions;
-import com.core.model.interfaces.IBaseModel;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.sql.ResultSet;
