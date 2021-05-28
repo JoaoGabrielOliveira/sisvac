@@ -14,6 +14,7 @@ import java.sql.SQLException;
 
 public class BaseModel<I extends IBaseModel> implements IBaseModel{
     protected String tableName;
+    protected String primatyKeyName;
     
     @Override
     public void mapToModel(ResultSet map) throws ReflectiveOperationException, SQLException{
@@ -34,8 +35,19 @@ public class BaseModel<I extends IBaseModel> implements IBaseModel{
 
         return this.tableName;
     }
+    
+    public String getPrimatyKeyName(){
+        if(this.primatyKeyName == null)
+            this.setPrimatyKeyName("id");
+
+        return this.primatyKeyName;
+    }
 
     protected void setTableName(String tableName){
         this.tableName = tableName;
+    }
+    
+    protected void setPrimatyKeyName(String primatyKeyName){
+        this.primatyKeyName = primatyKeyName;
     }
 }
