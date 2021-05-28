@@ -39,6 +39,20 @@ public class Service<T extends BaseModel> {
         return list;
     }
     
+    public T Find(Object param) throws SQLException, ReflectiveOperationException{
+        T objectInstance = this.getNewInstance();
+        
+        String query = "SELECT * FROM " + objectInstance.getTableName() +
+            " WHERE " + objectInstance.getPrimatyKeyName() + " = ?";
+        ResultSet result = this.operator.feat(query, param);
+
+        while(result.next()){
+            objectInstance.mapToModel(result);
+        }
+
+        return objectInstance;
+    }
+    
     protected MainOperator getOperator(){
         return this.operator;
     }
