@@ -1,6 +1,7 @@
 package com.core;
 
 import com.core.model.BaseModel;
+import java.lang.reflect.Field;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -59,9 +60,27 @@ public class Service<T extends BaseModel> {
         String query = "DELETE FROM " + objectInstance.getTableName() +
             " WHERE " + objectInstance.getPrimatyKeyName() + " = ?";
         
-        System.out.println(query);
-        
         return this.operator.execute(query, param);
+    }
+    
+    public Boolean create(Object... params) throws SQLException, ReflectiveOperationException{
+        String query;
+        
+        T objectInstance = this.getNewInstance();
+        
+        query = "INSERT INTO " + objectInstance.getTableName() + "(" + String.join(",", objectInstance.getColumns()) + ")"
+        + " VALUES (" + this.getInterrogativeQuote(params.length) + ")";
+
+        Boolean result = this.operator.execute(query, params);
+        
+        return result;
+    }
+    
+    protected String getInterrogativeQuote(Integer total){
+        String[] values = new String[total];
+        for(int i = 0; i < total; i++)
+            values[i] = "?";
+        return String.join(",", values);
     }
     
     protected MainOperator getOperator(){

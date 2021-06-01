@@ -28,6 +28,17 @@ public class BaseModel<I extends IBaseModel> implements IBaseModel{
         }
     }
     
+    public String[] getColumns(){
+        Field[] selfFields = this.getClass().getDeclaredFields();
+        String[] columns = new String[selfFields.length];
+        
+        for(int i = 0; i < selfFields.length; i++){
+            columns[i] = selfFields[i].getName();
+        }
+        
+        return columns;
+    }
+    
     public String getTableName(){
         if(this.tableName == null)
             this.setTableName(this.getClass().getName());
