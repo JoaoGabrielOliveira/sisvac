@@ -24,8 +24,8 @@ public class Operator {
         this.connector.connect();
                 
         PreparedStatement statement = this.getStatement(sql, params);
-
-        Boolean result = statement.execute(sql);
+        
+        Boolean result = statement.execute();
         this.connector.disconnect();
         return result;
     }

@@ -39,7 +39,7 @@ public class Service<T extends BaseModel> {
         return list;
     }
     
-    public T Find(Object param) throws SQLException, ReflectiveOperationException{
+    public T find(Object param) throws SQLException, ReflectiveOperationException{
         T objectInstance = this.getNewInstance();
         
         String query = "SELECT * FROM " + objectInstance.getTableName() +
@@ -51,6 +51,17 @@ public class Service<T extends BaseModel> {
         }
 
         return objectInstance;
+    }
+    
+    public Boolean delete(Object param) throws SQLException, ReflectiveOperationException{
+        T objectInstance = this.getNewInstance();
+        
+        String query = "DELETE FROM " + objectInstance.getTableName() +
+            " WHERE " + objectInstance.getPrimatyKeyName() + " = ?";
+        
+        System.out.println(query);
+        
+        return this.operator.execute(query, param);
     }
     
     protected MainOperator getOperator(){
