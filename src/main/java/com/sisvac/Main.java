@@ -10,6 +10,6 @@ public class Main {
         int num;
         System.out.println("Hello World!!");
         
-        num = Integer.parseInt(JOptionPane.showInputDialog("Digite o numero"));
+        num = Integer.parseInt(JOptionPane.showInputDialog("Digite or numero"));
     }
 }
