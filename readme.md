@@ -31,17 +31,24 @@ INSERT INTO (nome, endereco, etc) paciente VALUES ("Nome do paciente", "Endereco
 ```java
     Service<Paciente> service = new Service(Paciente.class);
 
-    service.create("Nome do paciente", "Endereco", "etc");
+    Paciente paciente = new Paciente();
+    paciente.setName("Nome do Paciente");
+    paciente.setESaude(true);
+
+    service.create(paciente);
 ```
 
 ### Atualizar um dado a tabela
-UPDATE paciente SET nome = "Novo nome do paciente";
+UPDATE paciente SET nome = "Novo nome do paciente" WHERE id = 1;
 ```java
     Service<Paciente> service = new Service(Paciente.class);
 
-    int Id_do_paciente = 1;
+    Paciente paciente = new Paciente();
 
-    service.update(Id_do_paciente, "Nome do paciente");
+    paciente.setId(1);
+    paciente.setName("Novo nome do paciente");
+
+    service.update(paciente);
 ```
 
 ### Deletar um dado a tabela
