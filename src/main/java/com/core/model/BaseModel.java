@@ -6,14 +6,18 @@
 package com.core.model;
 
 import com.core.Extensions;
+import com.core.Service;
+import java.util.ArrayList;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class BaseModel<I extends IBaseModel> implements IBaseModel{
+
+public abstract class BaseModel<I extends IBaseModel> implements IBaseModel{
     protected String tableName;
     protected String primatyKeyName;
+    protected Integer columnsLength;
     
     @Override
     public void mapToModel(ResultSet map) throws ReflectiveOperationException, SQLException{
@@ -26,6 +30,35 @@ public class BaseModel<I extends IBaseModel> implements IBaseModel{
             Method set = selfClass.getMethod(setMethodName, field.getType());
             set.invoke(this, map.getObject(fieldName, field.getType()));
         }
+    }
+    
+    public Object[] getValuesIfNotNull() throws ReflectiveOperationException{
+        ArrayList<Object> valuesNotNull = new ArrayList();
+        
+        for(Object value : this.getValues()){
+            if(value != null){
+                valuesNotNull.add(value);
+            }
+        }
+        
+        return valuesNotNull.toArray();
+    }
+    
+    public Object[] getValues() throws ReflectiveOperationException {
+        Class<?> selfClass = this.getClass();
+        ArrayList<Object> values = new ArrayList();
+        
+        
+        for(Field field : selfClass.getDeclaredFields()){
+            String fieldName = field.getName();
+            String getMethodName = "get" + Extensions.capitalize(fieldName);
+
+            Method get = selfClass.getMethod(getMethodName);
+            Object value = get.invoke(this);
+            values.add(value);
+        }
+        
+        return values.toArray();      
     }
     
     public String[] getColumns(){
