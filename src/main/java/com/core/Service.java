@@ -55,6 +55,31 @@ public class Service<T extends BaseModel> {
         return objectInstance;
     }
     
+    public T findBy(String... params) throws SQLException, ReflectiveOperationException{
+        T objectInstance = this.getNewInstance();
+        
+        String[] columnsParams = new String[params.length];
+        Object[] valuesParams = new Object[params.length];
+        
+        for(int i = 0; i < params.length; i++){
+            String[] dado = params[i].split(":");
+            
+            columnsParams[i] = dado[0];
+            valuesParams[i] = dado[1];
+        }
+        
+        String query = "SELECT * FROM " + objectInstance.getTableName() +
+            " WHERE " + this.getBindParams(columnsParams);
+        
+        ResultSet result = this.operator.feat(query, valuesParams);
+
+        while(result.next()){
+            objectInstance.mapToModel(result);
+        }
+
+        return objectInstance;
+    }
+    
     public Boolean delete(Object param) throws SQLException, ReflectiveOperationException{
         T objectInstance = this.getNewInstance();
         
@@ -82,7 +107,7 @@ public class Service<T extends BaseModel> {
     public Boolean update(T model) throws SQLException, ReflectiveOperationException{
         T objectInstance = this.getNewInstance();
         
-        String query = "UPDATE " + objectInstance.getTableName() + " SET " + this.getUpdateParams(model.getColumns()) +
+        String query = "UPDATE " + objectInstance.getTableName() + " SET " + this.getBindParams(model.getColumns()) +
                 " WHERE " + model.getPrimatyKeyName() + "=?";
         
         Object[] params = model.getValues();
@@ -99,7 +124,7 @@ public class Service<T extends BaseModel> {
         return String.join(",", values);
     }
     
-    protected String getUpdateParams(String[] columns){
+    protected String getBindParams(String[] columns){
         String[] values = new String[columns.length];
         for (int i = 0; i < columns.length; i++){
             values[i] = columns[i] + "=?";
