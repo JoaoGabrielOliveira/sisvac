@@ -1,15 +1,15 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.sisvac.model;
 
-import com.core.model.BaseModel;
-import java.util.Date;
-
-public class Paciente extends BaseModel
+public class UnidadeSaude
 {
     private Integer id;
     private String nome;
     private Integer idEndereco;
-    private Boolean eSaude;
-    private Date dataNascimento;
 
     public Integer getId(){
         return this.id;
@@ -28,17 +28,5 @@ public class Paciente extends BaseModel
     }
     public void setIdEndereco(Integer param){
         this.idEndereco = param;
-    }
-    public Boolean getESaude(){
-        return this.eSaude;
-    }
-    public void setESaude(Boolean param){
-        this.eSaude = param;
-    }
-    public Date getDataNascimento(){
-        return this.dataNascimento;
-    }
-    public void setDataNascimento(Date param){
-        this.dataNascimento = param;
     }
 }

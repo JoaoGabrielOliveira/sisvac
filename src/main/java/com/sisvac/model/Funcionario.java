@@ -3,13 +3,15 @@ package com.sisvac.model;
 import com.core.model.BaseModel;
 import java.util.Date;
 
-public class Paciente extends BaseModel
+public class Funcionario extends BaseModel
 {
     private Integer id;
     private String nome;
     private Integer idEndereco;
-    private Boolean eSaude;
+    private String cargo;
+    private String email;
     private Date dataNascimento;
+    private Integer idUnidadeSaude;
 
     public Integer getId(){
         return this.id;
@@ -29,16 +31,28 @@ public class Paciente extends BaseModel
     public void setIdEndereco(Integer param){
         this.idEndereco = param;
     }
-    public Boolean getESaude(){
-        return this.eSaude;
+    public String getCargo(){
+        return this.cargo;
     }
-    public void setESaude(Boolean param){
-        this.eSaude = param;
+    public void setCargo(String param){
+        this.cargo = param;
+    }
+    public String getEmail(){
+        return this.email;
+    }
+    public void setEmail(String param){
+        this.email = param;
     }
     public Date getDataNascimento(){
         return this.dataNascimento;
     }
     public void setDataNascimento(Date param){
         this.dataNascimento = param;
+    }
+    public Integer getIdUnidadeSaude(){
+        return this.idUnidadeSaude;
+    }
+    public void setIdUnidadeSaude(Integer param){
+        this.idUnidadeSaude = param;
     }
 }

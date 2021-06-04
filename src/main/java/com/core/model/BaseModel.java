@@ -14,7 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
-public abstract class BaseModel<I extends IBaseModel> implements IBaseModel{
+public abstract class BaseModel implements IBaseModel{
     protected String tableName;
     protected String primatyKeyName;
     protected Integer columnsLength;
