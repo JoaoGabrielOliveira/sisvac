@@ -1,6 +1,7 @@
 package com.core;
 
 import com.core.model.BaseModel;
+import com.core.model.IBaseModel;
 import java.lang.reflect.Field;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -74,6 +75,10 @@ public class Service<T extends BaseModel> {
         Boolean result = this.operator.execute(query, params);
         
         return result;
+    }
+    
+    public Boolean create(T model) throws SQLException, ReflectiveOperationException{
+        return this.create(model.getValues());
     }
     
     protected String getInterrogativeQuote(Integer total){
