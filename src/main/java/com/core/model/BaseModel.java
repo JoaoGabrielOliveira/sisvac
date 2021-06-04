@@ -79,6 +79,11 @@ public abstract class BaseModel<I extends IBaseModel> implements IBaseModel{
         return this.tableName;
     }
     
+    public Object getPrimatyKeyValue()throws ReflectiveOperationException{
+        Method getMethod = this.getClass().getDeclaredMethod("get" + Extensions.capitalize(this.getPrimatyKeyName()));
+        return getMethod.invoke(this);
+    }
+    
     public String getPrimatyKeyName(){
         if(this.primatyKeyName == null)
             this.setPrimatyKeyName("id");
