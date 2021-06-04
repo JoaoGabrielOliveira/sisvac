@@ -1,12 +1,12 @@
 package com.core;
 
 import com.core.model.BaseModel;
-import com.core.model.IBaseModel;
-import java.lang.reflect.Field;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Service<T extends BaseModel> {
     protected MainOperator operator;
@@ -65,11 +65,9 @@ public class Service<T extends BaseModel> {
     }
     
     public Boolean create(Object... params) throws SQLException, ReflectiveOperationException{
-        String query;
-        
         T objectInstance = this.getNewInstance();
         
-        query = "INSERT INTO " + objectInstance.getTableName() + "(" + String.join(",", objectInstance.getColumns()) + ")"
+        String query = "INSERT INTO " + objectInstance.getTableName() + "(" + String.join(",", objectInstance.getColumns()) + ")"
         + " VALUES (" + this.getInterrogativeQuote(params.length) + ")";
 
         Boolean result = this.operator.execute(query, params);
@@ -81,10 +79,31 @@ public class Service<T extends BaseModel> {
         return this.create(model.getValues());
     }
     
+    public Boolean update(T model) throws SQLException, ReflectiveOperationException{
+        T objectInstance = this.getNewInstance();
+        
+        String query = "UPDATE " + objectInstance.getTableName() + " SET " + this.getUpdateParams(model.getColumns()) +
+                " WHERE " + model.getPrimatyKeyName() + "=?";
+        
+        Object[] params = model.getValues();
+        params = Arrays.copyOf(params, params.length + 1);
+        params[params.length - 1] = model.getPrimatyKeyValue();
+        
+        return this.operator.execute(query, params);
+    }
+    
     protected String getInterrogativeQuote(Integer total){
         String[] values = new String[total];
         for(int i = 0; i < total; i++)
             values[i] = "?";
+        return String.join(",", values);
+    }
+    
+    protected String getUpdateParams(String[] columns){
+        String[] values = new String[columns.length];
+        for (int i = 0; i < columns.length; i++){
+            values[i] = columns[i] + "=?";
+        }
         return String.join(",", values);
     }
     
