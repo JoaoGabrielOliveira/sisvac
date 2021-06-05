@@ -144,7 +144,7 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\User\OneDrive - Etec Centro Paula Souza\Desktop\Img_java\imagem-do-usuario-com-fundo-preto.png"/>
+          <Image iconType="3" name="/img_icons/imagem-do-usuario-com-fundo-preto.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jLabel1"/>
       </Properties>
@@ -152,7 +152,7 @@
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\User\OneDrive - Etec Centro Paula Souza\Desktop\Img_java\injecao.png"/>
+          <Image iconType="3" name="/img_icons/injecao.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jLabel2"/>
       </Properties>
@@ -160,7 +160,7 @@
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\User\OneDrive - Etec Centro Paula Souza\Desktop\linha.png"/>
+          <Image iconType="3" name="/img_icons/linha.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jLabel3"/>
       </Properties>
@@ -168,7 +168,7 @@
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\User\OneDrive - Etec Centro Paula Souza\Desktop\Img_java\relatorio-medico.png"/>
+          <Image iconType="3" name="/img_icons/relatorio-medico.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jLabel4"/>
       </Properties>
