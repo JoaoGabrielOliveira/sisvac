@@ -5,7 +5,9 @@
  */
 package com.sisvac.model;
 
-public class UnidadeSaude
+import com.core.model.BaseModel;
+
+public class UnidadeSaude extends BaseModel
 {
     private Integer id;
     private String nome;
