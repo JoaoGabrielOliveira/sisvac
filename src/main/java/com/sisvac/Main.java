@@ -1,6 +1,5 @@
 package com.sisvac;
 
-import com.core.database.Connector;
 import com.core.database.Operator;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
