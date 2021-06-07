@@ -97,7 +97,7 @@ public class Fila extends javax.swing.JFrame {
                 .addComponent(labelPacienteIdade)
                 .addGap(18, 18, 18)
                 .addComponent(labelPacienteEndereco)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         labelPacienteNome.getAccessibleContext().setAccessibleName("Fila de Vacinação");
@@ -114,15 +114,16 @@ public class Fila extends javax.swing.JFrame {
                 .addGroup(panelMensagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelMensagemLayout.createSequentialGroup()
                         .addGroup(panelMensagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(panelPaciente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelMensagemLayout.createSequentialGroup()
-                                .addComponent(jButtonVacinar, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
-                                .addComponent(jButtonAusentar, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(panelPaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(panelMensagemLayout.createSequentialGroup()
+                                .addComponent(jButtonVacinar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButtonAusentar)
+                                .addGap(5, 5, 5)))
                         .addGap(42, 42, 42))
                     .addGroup(panelMensagemLayout.createSequentialGroup()
                         .addComponent(labelTitulo1)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(142, Short.MAX_VALUE))))
         );
         panelMensagemLayout.setVerticalGroup(
             panelMensagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,11 +131,11 @@ public class Fila extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(labelTitulo1)
                 .addGap(18, 18, 18)
-                .addComponent(panelPaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addComponent(panelPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                 .addGroup(panelMensagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonVacinar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonAusentar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButtonVacinar)
+                    .addComponent(jButtonAusentar))
                 .addContainerGap())
         );
 
