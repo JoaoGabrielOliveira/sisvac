@@ -117,6 +117,26 @@ public class Service<T extends BaseModel> {
         return this.operator.execute(query, params);
     }
     
+    public List<T> where(String query, Object... params) throws SQLException, ReflectiveOperationException {
+        List<T> list = new ArrayList<>();
+        
+        ResultSet result = this.operator.feat("SELECT * FROM " + this.getNewInstance().getTableName() + " WHERE "
+                + query, params);
+        
+        while(result.next()){
+            T model = this.getNewInstance();
+
+            try{
+                model.mapToModel(result);
+                list.add(model);
+            }
+            catch(IllegalArgumentException e){
+            }
+        }
+        
+        return list;
+    }
+    
     protected String getInterrogativeQuote(Integer total){
         String[] values = new String[total];
         for(int i = 0; i < total; i++)
