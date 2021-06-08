@@ -23,15 +23,8 @@ public class LoginController {
         //Find vai procurar apenas pela chave primaria
         //service.find(1);
         
-        String paramEmail = "email:" + email;
-        String paramSenha = "senha:" + senha;
-        
         try{
-            LoginController.funcionarioLogado = service.findBy(paramEmail, paramSenha);
-            
-            if(LoginController.funcionarioLogado == null){
-                javax.swing.JOptionPane.showMessageDialog(null,"Funcionario não cadastrado. Fala com o administrador.");
-            }
+            LoginController.funcionarioLogado = service.findBy("email,senha", email, senha);
 
         } catch (SQLException ex) {
             
