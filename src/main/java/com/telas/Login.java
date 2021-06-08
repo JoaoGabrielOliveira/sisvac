@@ -139,9 +139,9 @@ public class Login extends javax.swing.JFrame {
         LoginController.login(this.Email.getText(), String.valueOf(this.Senha.getPassword()));
         if(LoginController.funcionarioLogado != null){
             String cargo = LoginController.funcionarioLogado.getCargo();
-            if(cargo == "adm")
+            if("adm".equals(cargo))
                 new Menu().setVisible(true);
-            else if(cargo == "atendente")
+            else if("atendente".equals(cargo))
                 new Fila().setVisible(true);
                 
         }
