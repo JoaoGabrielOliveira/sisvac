@@ -10,8 +10,13 @@ public class Funcionario extends BaseModel
     //private Integer idEndereco;
     private String cargo;
     private String email;
+    private String senha;
     private Date DT_NASCIMENTO;
-    private Integer idUnidadeSaude;
+    //private Integer idUnidadeSaude;
+    
+    public Funcionario(){
+        this.setTableName("tb_funcionario");
+    }
     
     public Integer getId(){
         return this.id;
@@ -49,10 +54,16 @@ public class Funcionario extends BaseModel
     public void setDT_NASCIMENTO(Date param){
         this.DT_NASCIMENTO = param;
     }
-    public Integer getIdUnidadeSaude(){
+    public void setSenha(String param){
+        this.senha = param;
+    }
+    public String getSenha(){
+        return this.senha;
+    }
+    /* public Integer getIdUnidadeSaude(){
         return this.idUnidadeSaude;
     }
     public void setIdUnidadeSaude(Integer param){
         this.idUnidadeSaude = param;
-    }
+    }*/
 }
