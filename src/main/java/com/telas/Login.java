@@ -137,6 +137,17 @@ public class Login extends javax.swing.JFrame {
         //LoginController c = new LoginController();
         
         LoginController.login(this.Email.getText(), String.valueOf(this.Senha.getPassword()));
+        if(LoginController.funcionarioLogado != null){
+            String cargo = LoginController.funcionarioLogado.getCargo();
+            if(cargo == "adm")
+                new Menu().setVisible(true);
+            else if(cargo == "atendente")
+                new Fila().setVisible(true);
+                
+        }
+        else {
+            javax.swing.JOptionPane.showMessageDialog(null,"Funcionario não cadastrado.\nFala com o administrador da sua Unidade de Saúde.");
+        }
     }//GEN-LAST:event_botaoentrarActionPerformed
 
     /**
