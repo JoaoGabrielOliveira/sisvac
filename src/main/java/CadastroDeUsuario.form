@@ -94,7 +94,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jDateChooserDataNascimento" min="-2" max="-2" attributes="0"/>
+                              <Component id="jDateDataNascimento" min="-2" max="-2" attributes="0"/>
                               <Component id="jTextFieldNomeUsuario" alignment="0" max="32767" attributes="0"/>
                               <Component id="jTextFieldEmail" alignment="0" max="32767" attributes="0"/>
                               <Component id="jTextFieldUnidadeDeSaude" pref="241" max="32767" attributes="0"/>
@@ -118,7 +118,7 @@
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="jLabelDataDeNascimento" min="-2" max="-2" attributes="0"/>
-                  <Component id="jDateChooserDataNascimento" min="-2" max="-2" attributes="0"/>
+                  <Component id="jDateDataNascimento" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
@@ -161,7 +161,7 @@
         <Property name="text" type="java.lang.String" value="Data De Nascimento"/>
       </Properties>
     </Component>
-    <Component class="com.toedter.calendar.JDateChooser" name="jDateChooserDataNascimento">
+    <Component class="com.toedter.calendar.JDateChooser" name="jDateDataNascimento">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelCargo">
       <Properties>
@@ -197,6 +197,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Cadastrar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCadastrarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="jComboBoxCargo">
       <Properties>
@@ -210,6 +213,9 @@
           </StringArray>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxCargoActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
