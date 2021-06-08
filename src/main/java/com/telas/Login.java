@@ -1,3 +1,10 @@
+package com.telas;
+
+
+import com.core.Service;
+import com.sisvac.controller.LoginController;
+import com.sisvac.model.Paciente;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -28,10 +35,10 @@ public class Login extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         Email = new javax.swing.JTextField();
-        Senha = new javax.swing.JTextField();
         botaoentrar = new javax.swing.JButton();
         botaosair = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        Senha = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,9 +51,12 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        Senha.setBorder(javax.swing.BorderFactory.createTitledBorder("Senha"));
-
         botaoentrar.setText("Entrar");
+        botaoentrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoentrarActionPerformed(evt);
+            }
+        });
 
         botaosair.setText("Sair");
         botaosair.setActionCommand("sair");
@@ -58,6 +68,8 @@ public class Login extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img_icons/logosisvac.png"))); // NOI18N
         jLabel2.setText("jLabel2");
+
+        Senha.setBorder(javax.swing.BorderFactory.createTitledBorder("Senha"));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -76,9 +88,9 @@ public class Login extends javax.swing.JFrame {
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(171, 171, 171)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Email)
-                            .addComponent(Senha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Senha, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(183, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -88,9 +100,9 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addGap(39, 39, 39)
                 .addComponent(Senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaosair)
                     .addComponent(botaoentrar))
@@ -119,6 +131,13 @@ public class Login extends javax.swing.JFrame {
        
         
     }//GEN-LAST:event_botaosairActionPerformed
+
+    private void botaoentrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoentrarActionPerformed
+
+        //LoginController c = new LoginController();
+        
+        LoginController.login(this.Email.getText(), String.valueOf(this.Senha.getPassword()));
+    }//GEN-LAST:event_botaoentrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -157,7 +176,7 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Email;
-    private javax.swing.JTextField Senha;
+    private javax.swing.JPasswordField Senha;
     private javax.swing.JButton botaoentrar;
     private javax.swing.JButton botaosair;
     private javax.swing.JLabel jLabel2;

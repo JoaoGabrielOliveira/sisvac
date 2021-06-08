@@ -7,12 +7,12 @@ public class Funcionario extends BaseModel
 {
     private Integer id;
     private String nome;
-    private Integer idEndereco;
+    //private Integer idEndereco;
     private String cargo;
     private String email;
-    private Date dataNascimento;
+    private Date DT_NASCIMENTO;
     private Integer idUnidadeSaude;
-
+    
     public Integer getId(){
         return this.id;
     }
@@ -25,12 +25,12 @@ public class Funcionario extends BaseModel
     public void setNome(String param){
         this.nome = param;
     }
-    public Integer getIdEndereco(){
+    /*public Integer getIdEndereco(){
         return this.idEndereco;
     }
     public void setIdEndereco(Integer param){
         this.idEndereco = param;
-    }
+    }*/
     public String getCargo(){
         return this.cargo;
     }
@@ -43,11 +43,11 @@ public class Funcionario extends BaseModel
     public void setEmail(String param){
         this.email = param;
     }
-    public Date getDataNascimento(){
-        return this.dataNascimento;
+    public Date getDT_NASCIMENTO(){
+        return this.DT_NASCIMENTO;
     }
-    public void setDataNascimento(Date param){
-        this.dataNascimento = param;
+    public void setDT_NASCIMENTO(Date param){
+        this.DT_NASCIMENTO = param;
     }
     public Integer getIdUnidadeSaude(){
         return this.idUnidadeSaude;

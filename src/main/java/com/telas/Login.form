@@ -50,7 +50,7 @@
                   <Component id="botaoentrar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
               </Group>
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="212" max="-2" attributes="0"/>
@@ -58,9 +58,9 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="171" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="Email" max="32767" attributes="0"/>
-                              <Component id="Senha" alignment="1" min="-2" pref="237" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="Senha" alignment="0" min="-2" pref="237" max="-2" attributes="0"/>
+                              <Component id="Email" min="-2" pref="237" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -75,9 +75,9 @@
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="Email" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                   <Component id="Senha" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="45" max="32767" attributes="0"/>
+                  <EmptySpace pref="44" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="botaosair" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="botaoentrar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -100,19 +100,13 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EmailActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="Senha">
-          <Properties>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                <TitledBorder title="Senha"/>
-              </Border>
-            </Property>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JButton" name="botaoentrar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Entrar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoentrarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="botaosair">
           <Properties>
@@ -129,6 +123,15 @@
               <Image iconType="3" name="/img_icons/logosisvac.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="jLabel2"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JPasswordField" name="Senha">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                <TitledBorder title="Senha"/>
+              </Border>
+            </Property>
           </Properties>
         </Component>
       </SubComponents>
