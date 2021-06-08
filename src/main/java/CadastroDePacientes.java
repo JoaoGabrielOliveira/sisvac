@@ -1,13 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+import com.core.Service;
+import com.sisvac.model.Paciente;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-/**
- *
- * @author elias
- */
 public class CadastroDePacientes extends javax.swing.JFrame {
 
     /**
@@ -26,19 +22,17 @@ public class CadastroDePacientes extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroupRadioButton = new javax.swing.ButtonGroup();
         jLabelNome = new javax.swing.JLabel();
         jTextFieldNomePaciente = new javax.swing.JTextField();
-        jLabelIdade = new javax.swing.JLabel();
-        jTextFieldIdadePaciente = new javax.swing.JTextField();
         jLabelEnderecoPaciente = new javax.swing.JLabel();
         jTextFieldEnderecoPaciente = new javax.swing.JTextField();
         jLabelAreaSaude = new javax.swing.JLabel();
-        jRadioSim = new javax.swing.JRadioButton();
-        jRadioNao = new javax.swing.JRadioButton();
-        jLabelDataDeVacinacao = new javax.swing.JLabel();
-        jDateDataVacinacao = new com.toedter.calendar.JDateChooser();
+        jLabelDataNascimento = new javax.swing.JLabel();
+        jDateDataNascimento = new com.toedter.calendar.JDateChooser();
         jButtonVoltar = new javax.swing.JButton();
         jButtonCadastrar = new javax.swing.JButton();
+        jCheckBox_ESaude = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro De Pacientes");
@@ -48,14 +42,6 @@ public class CadastroDePacientes extends javax.swing.JFrame {
         jTextFieldNomePaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldNomePacienteActionPerformed(evt);
-            }
-        });
-
-        jLabelIdade.setText("Idade");
-
-        jTextFieldIdadePaciente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldIdadePacienteActionPerformed(evt);
             }
         });
 
@@ -69,21 +55,7 @@ public class CadastroDePacientes extends javax.swing.JFrame {
 
         jLabelAreaSaude.setText("Trabalha Na Área Da Saúde ? ");
 
-        jRadioSim.setText("Sim");
-        jRadioSim.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioSimActionPerformed(evt);
-            }
-        });
-
-        jRadioNao.setText("Não");
-        jRadioNao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioNaoActionPerformed(evt);
-            }
-        });
-
-        jLabelDataDeVacinacao.setText("Data De Vacinação");
+        jLabelDataNascimento.setText("Data de Nascimento");
 
         jButtonVoltar.setText("Voltar");
         jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -93,6 +65,17 @@ public class CadastroDePacientes extends javax.swing.JFrame {
         });
 
         jButtonCadastrar.setText("Cadastrar");
+        jButtonCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCadastrarActionPerformed(evt);
+            }
+        });
+
+        jCheckBox_ESaude.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox_ESaudeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -100,16 +83,11 @@ public class CadastroDePacientes extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldIdadePaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldEnderecoPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jTextFieldEnderecoPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(104, 104, 104))
             .addGroup(layout.createSequentialGroup()
                 .addGap(78, 78, 78)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabelIdade)
-                        .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabelNome, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
@@ -118,16 +96,14 @@ public class CadastroDePacientes extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabelDataDeVacinacao)
+                                .addComponent(jLabelDataNascimento)
                                 .addGap(28, 28, 28)
-                                .addComponent(jDateDataVacinacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jDateDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabelAreaSaude)
-                                .addGap(18, 18, 18)
-                                .addComponent(jRadioSim)
-                                .addGap(18, 18, 18)
-                                .addComponent(jRadioNao)))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jCheckBox_ESaude)))
+                        .addGap(0, 297, Short.MAX_VALUE))
                     .addComponent(jLabelEnderecoPaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
             .addGroup(layout.createSequentialGroup()
                 .addGap(162, 162, 162)
@@ -143,26 +119,20 @@ public class CadastroDePacientes extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabelNome)
                     .addComponent(jTextFieldNomePaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
+                .addGap(59, 59, 59)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jRadioSim)
-                        .addComponent(jRadioNao))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelIdade)
-                            .addComponent(jTextFieldIdadePaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelEnderecoPaciente)
                             .addComponent(jTextFieldEnderecoPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(36, 36, 36)
-                        .addComponent(jLabelAreaSaude, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(44, 44, 44)
+                        .addGap(32, 32, 32)
+                        .addComponent(jLabelAreaSaude, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jCheckBox_ESaude))
+                .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelDataDeVacinacao)
-                    .addComponent(jDateDataVacinacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                    .addComponent(jLabelDataNascimento)
+                    .addComponent(jDateDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonVoltar)
                     .addComponent(jButtonCadastrar))
@@ -177,26 +147,40 @@ public class CadastroDePacientes extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNomePacienteActionPerformed
 
-    private void jTextFieldIdadePacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdadePacienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldIdadePacienteActionPerformed
-
     private void jTextFieldEnderecoPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEnderecoPacienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldEnderecoPacienteActionPerformed
 
-    private void jRadioSimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioSimActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioSimActionPerformed
-
-    private void jRadioNaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioNaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioNaoActionPerformed
-
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
-        // TODO add your handling code here:
+        new Menu().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButtonVoltarActionPerformed
 
+    private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
+        //Botão de Cadastro
+        Service<Paciente> service = new Service(Paciente.class);
+        Paciente paciente = new Paciente();
+        
+        paciente.setNome( this.jTextFieldNomePaciente.getText() );
+
+        paciente.setDT_NASCIMENTO(this.jDateDataNascimento.getDate() );
+        
+        paciente.setE_SAUDE( this.jCheckBox_ESaude.isSelected() );
+
+        try {
+            service.create(paciente);
+        } catch (Exception e){
+            javax.swing.JOptionPane.showMessageDialog(this,e.getMessage());
+        }
+        
+        
+    }//GEN-LAST:event_jButtonCadastrarActionPerformed
+
+    private void jCheckBox_ESaudeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox_ESaudeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox_ESaudeActionPerformed
+
+    
     /**
      * @param args the command line arguments
      */
@@ -233,18 +217,16 @@ public class CadastroDePacientes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroupRadioButton;
     private javax.swing.JButton jButtonCadastrar;
     private javax.swing.JButton jButtonVoltar;
-    private com.toedter.calendar.JDateChooser jDateDataVacinacao;
+    private javax.swing.JCheckBox jCheckBox_ESaude;
+    private com.toedter.calendar.JDateChooser jDateDataNascimento;
     private javax.swing.JLabel jLabelAreaSaude;
-    private javax.swing.JLabel jLabelDataDeVacinacao;
+    private javax.swing.JLabel jLabelDataNascimento;
     private javax.swing.JLabel jLabelEnderecoPaciente;
-    private javax.swing.JLabel jLabelIdade;
     private javax.swing.JLabel jLabelNome;
-    private javax.swing.JRadioButton jRadioNao;
-    private javax.swing.JRadioButton jRadioSim;
     private javax.swing.JTextField jTextFieldEnderecoPaciente;
-    private javax.swing.JTextField jTextFieldIdadePaciente;
     private javax.swing.JTextField jTextFieldNomePaciente;
     // End of variables declaration//GEN-END:variables
 }
