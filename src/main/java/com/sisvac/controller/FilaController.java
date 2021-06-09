@@ -4,13 +4,14 @@ import com.core.Service;
 import com.sisvac.model.Paciente;
 import java.util.Date;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 import javax.swing.table.DefaultTableModel;
 
 
 public class FilaController {
     public DefaultTableModel modeloPadrao;
-    private Service<Paciente> service;
+    private final Service<Paciente> service;
     
     private List<Paciente> listaPacientes;
     private Integer nivelPrioridade;
@@ -41,10 +42,7 @@ public class FilaController {
     private void pegarPacientes70mais(){
         try {
             this.listaPacientes = this.service.where("dt_nascimento <= ?", this.getAno());
-            
-            if(this.listaPacientes.isEmpty()){
-                this.nivelPrioridade = 2;
-            }
+            this.mudarPrioridadeSeNecessario(2);
             
         }
         catch(Exception e){ this.exibirMensagemErro(e); }
@@ -53,9 +51,7 @@ public class FilaController {
     private void pegarPacientesSaude(){
         try {
             this.listaPacientes = this.service.where("dt_nascimento > ? AND e_saude = ?", this.getAno(), true);
-            if(this.listaPacientes.isEmpty()){
-                this.nivelPrioridade = 3;
-            }
+            this.mudarPrioridadeSeNecessario(3);
         }
         catch(Exception e){ this.exibirMensagemErro(e); }
     }
@@ -94,7 +90,14 @@ public class FilaController {
     }
     
     public void exibirMensagemErro(Exception e){
-        javax.swing.JOptionPane.showMessageDialog(null,"Um erro aconteceu.\n" + e.getMessage());
+        JOptionPane.showMessageDialog(null,"Um erro aconteceu.\n" + e.getMessage());
+    }
+    
+    public void mudarPrioridadeSeNecessario(Integer prioridade){
+        if(this.listaPacientes.isEmpty()){
+            this.nivelPrioridade = prioridade;
+            this.pegarPacientes();
+        }
     }
     
     public java.time.LocalDate getAno(){
