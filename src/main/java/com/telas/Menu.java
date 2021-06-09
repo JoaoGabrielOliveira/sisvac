@@ -1,6 +1,10 @@
+<<<<<<< HEAD:src/main/java/Menu.java
 
 
 
+=======
+package com.telas;
+>>>>>>> 62bbd5329640b3c4934cc89524ee0cf9b48a0253:src/main/java/com/telas/Menu.java
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -76,6 +80,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+<<<<<<< HEAD:src/main/java/Menu.java
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\elias\\sisvac\\src\\main\\java\\img_icons\\imagem-do-usuario-com-fundo-preto.png")); // NOI18N
         jLabel1.setText("jLabel1");
 
@@ -86,6 +91,14 @@ public class Menu extends javax.swing.JFrame {
         jLabel3.setText("jLabel3");
 
         jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\elias\\sisvac\\src\\main\\java\\img_icons\\relatorio-medico.png")); // NOI18N
+=======
+        jLabel1.setText("jLabel1");
+
+        jLabel2.setText("jLabel2");
+
+        jLabel3.setText("jLabel3");
+
+>>>>>>> 62bbd5329640b3c4934cc89524ee0cf9b48a0253:src/main/java/com/telas/Menu.java
         jLabel4.setText("jLabel4");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N

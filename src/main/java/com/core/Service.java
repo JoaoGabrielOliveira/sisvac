@@ -55,29 +55,10 @@ public class Service<T extends BaseModel> {
         return objectInstance;
     }
     
-    public T findBy(String... params) throws SQLException, ReflectiveOperationException{
-        T objectInstance = this.getNewInstance();
+    public T findBy(String columns, Object... params) throws SQLException, ReflectiveOperationException{
+        String query = this.getBindParams(columns.split(","));
         
-        String[] columnsParams = new String[params.length];
-        Object[] valuesParams = new Object[params.length];
-        
-        for(int i = 0; i < params.length; i++){
-            String[] dado = params[i].split(":");
-            
-            columnsParams[i] = dado[0];
-            valuesParams[i] = dado[1];
-        }
-        
-        String query = "SELECT * FROM " + objectInstance.getTableName() +
-            " WHERE " + this.getBindParams(columnsParams);
-        
-        ResultSet result = this.operator.feat(query, valuesParams);
-
-        while(result.next()){
-            objectInstance.mapToModel(result);
-        }
-
-        return objectInstance;
+        return this.where(query, params).get(0);
     }
     
     public Boolean delete(Object param) throws SQLException, ReflectiveOperationException{
@@ -145,11 +126,15 @@ public class Service<T extends BaseModel> {
     }
     
     protected String getBindParams(String[] columns){
+        return this.getBindParams(columns,"AND");
+    }
+    
+    protected String getBindParams(String[] columns, String delimitador){
         String[] values = new String[columns.length];
         for (int i = 0; i < columns.length; i++){
             values[i] = columns[i] + "=?";
         }
-        return String.join(",", values);
+        return String.join(" " + delimitador + " ", values);
     }
     
     protected MainOperator getOperator(){

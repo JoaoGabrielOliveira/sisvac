@@ -96,6 +96,7 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace type="separate" max="-2" attributes="0"/>
+<<<<<<< HEAD:src/main/java/CadastroDeUsuario.form
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jTextFieldNomeUsuario" alignment="0" max="32767" attributes="0"/>
                           <Component id="jTextFieldEmail" alignment="0" max="32767" attributes="0"/>
@@ -105,6 +106,14 @@
                               <Component id="jRadioButtonAdministrador" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                               <Component id="jRadioButtonAtendente" min="-2" max="-2" attributes="0"/>
+=======
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jDateDataNascimento" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldNomeUsuario" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jTextFieldEmail" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jTextFieldUnidadeDeSaude" pref="241" max="32767" attributes="0"/>
+>>>>>>> 62bbd5329640b3c4934cc89524ee0cf9b48a0253:src/main/java/com/telas/CadastroDeUsuario.form
                           </Group>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
@@ -124,7 +133,7 @@
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="jLabelDataDeNascimento" min="-2" max="-2" attributes="0"/>
-                  <Component id="jDateChooserDataNascimento" min="-2" max="-2" attributes="0"/>
+                  <Component id="jDateDataNascimento" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
@@ -170,7 +179,7 @@
         <Property name="text" type="java.lang.String" value="Data De Nascimento"/>
       </Properties>
     </Component>
-    <Component class="com.toedter.calendar.JDateChooser" name="jDateChooserDataNascimento">
+    <Component class="com.toedter.calendar.JDateChooser" name="jDateDataNascimento">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelCargo">
       <Properties>
@@ -212,6 +221,7 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCadastrarActionPerformed"/>
       </Events>
+<<<<<<< HEAD:src/main/java/CadastroDeUsuario.form
     </Component>
     <Component class="javax.swing.JRadioButton" name="jRadioButtonAdministrador">
       <Properties>
@@ -220,6 +230,8 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonAdministradorActionPerformed"/>
       </Events>
+=======
+>>>>>>> 62bbd5329640b3c4934cc89524ee0cf9b48a0253:src/main/java/com/telas/CadastroDeUsuario.form
     </Component>
     <Component class="javax.swing.JRadioButton" name="jRadioButtonAtendente">
       <Properties>
@@ -229,8 +241,16 @@
         <Property name="text" type="java.lang.String" value="Atendente"/>
       </Properties>
       <Events>
+<<<<<<< HEAD:src/main/java/CadastroDeUsuario.form
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonAtendenteActionPerformed"/>
       </Events>
+=======
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxCargoActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+>>>>>>> 62bbd5329640b3c4934cc89524ee0cf9b48a0253:src/main/java/com/telas/CadastroDeUsuario.form
     </Component>
   </SubComponents>
 </Form>
