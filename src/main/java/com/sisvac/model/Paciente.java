@@ -54,4 +54,8 @@ public class Paciente extends BaseModel {
     public void setDT_NASCIMENTO(Date param) {
         this.DT_NASCIMENTO = param;
     }
+
+    public void setEmail(String text) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

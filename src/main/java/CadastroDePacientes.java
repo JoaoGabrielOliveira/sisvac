@@ -34,7 +34,7 @@ public class CadastroDePacientes extends javax.swing.JFrame {
         jButtonCadastrar = new javax.swing.JButton();
         jCheckBox_ESaude = new javax.swing.JCheckBox();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro De Pacientes");
 
         jLabelNome.setText("Nome");

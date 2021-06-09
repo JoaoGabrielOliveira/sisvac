@@ -1,3 +1,7 @@
+
+import com.core.Service;
+import com.sisvac.model.Paciente;
+import com.sisvac.model.Funcionario;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -29,6 +33,8 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
+        jDayChooser1 = new com.toedter.calendar.JDayChooser();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jLabelNomeUsuario = new javax.swing.JLabel();
         jTextFieldNomeUsuario = new javax.swing.JTextField();
         jLabelDataDeNascimento = new javax.swing.JLabel();
@@ -40,7 +46,8 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
         jTextFieldUnidadeDeSaude = new javax.swing.JTextField();
         jButtonVoltar = new javax.swing.JButton();
         jButtonCadastrar = new javax.swing.JButton();
-        jComboBoxCargo = new javax.swing.JComboBox<>();
+        jRadioButtonAdministrador = new javax.swing.JRadioButton();
+        jRadioButtonAtendente = new javax.swing.JRadioButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -75,7 +82,7 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro De Usuario");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -108,10 +115,33 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
         });
 
         jButtonVoltar.setText("Voltar");
+        jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVoltarActionPerformed(evt);
+            }
+        });
 
         jButtonCadastrar.setText("Cadastrar");
+        jButtonCadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCadastrarActionPerformed(evt);
+            }
+        });
 
-        jComboBoxCargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Selecione Uma Das Opções>", "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jRadioButtonAdministrador.setText("Administrador");
+        jRadioButtonAdministrador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonAdministradorActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(jRadioButtonAtendente);
+        jRadioButtonAtendente.setText("Atendente");
+        jRadioButtonAtendente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonAtendenteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -128,19 +158,21 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
                     .addComponent(jLabelNomeUsuario))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 223, Short.MAX_VALUE)
                         .addComponent(jButtonCadastrar)
                         .addGap(93, 93, 93))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jDateChooserDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextFieldNomeUsuario)
-                                .addComponent(jTextFieldEmail)
-                                .addComponent(jTextFieldUnidadeDeSaude, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE))
-                            .addComponent(jComboBoxCargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(138, Short.MAX_VALUE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextFieldNomeUsuario)
+                            .addComponent(jTextFieldEmail)
+                            .addComponent(jTextFieldUnidadeDeSaude, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
+                            .addComponent(jDateChooserDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jRadioButtonAdministrador)
+                                .addGap(26, 26, 26)
+                                .addComponent(jRadioButtonAtendente)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,10 +185,12 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabelDataDeNascimento)
                     .addComponent(jDateChooserDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabelCargo)
-                    .addComponent(jComboBoxCargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jRadioButtonAdministrador)
+                        .addComponent(jRadioButtonAtendente)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelEmail)
@@ -187,6 +221,25 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
     private void jTextFieldUnidadeDeSaudeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUnidadeDeSaudeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldUnidadeDeSaudeActionPerformed
+
+    private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
+        
+    }//GEN-LAST:event_jButtonCadastrarActionPerformed
+
+    private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
+        new Menu().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonVoltarActionPerformed
+
+    private void jRadioButtonAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonAdministradorActionPerformed
+      
+       
+    }//GEN-LAST:event_jRadioButtonAdministradorActionPerformed
+
+    private void jRadioButtonAtendenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonAtendenteActionPerformed
+        
+       
+    }//GEN-LAST:event_jRadioButtonAtendenteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -224,10 +277,11 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButtonCadastrar;
     private javax.swing.JButton jButtonVoltar;
-    private javax.swing.JComboBox<String> jComboBoxCargo;
     private com.toedter.calendar.JDateChooser jDateChooserDataNascimento;
+    private com.toedter.calendar.JDayChooser jDayChooser1;
     private javax.swing.JLabel jLabelCargo;
     private javax.swing.JLabel jLabelDataDeNascimento;
     private javax.swing.JLabel jLabelEmail;
@@ -236,6 +290,8 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JRadioButton jRadioButtonAdministrador;
+    private javax.swing.JRadioButton jRadioButtonAtendente;
     private javax.swing.JTextField jTextFieldEmail;
     private javax.swing.JTextField jTextFieldNomeUsuario;
     private javax.swing.JTextField jTextFieldUnidadeDeSaude;
