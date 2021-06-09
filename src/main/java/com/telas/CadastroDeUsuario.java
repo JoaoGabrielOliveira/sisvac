@@ -1,9 +1,3 @@
-<<<<<<< HEAD:src/main/java/CadastroDeUsuario.java
-
-import com.core.Service;
-import com.sisvac.model.Paciente;
-import com.sisvac.model.Funcionario;
-=======
 package com.telas;
 
 
@@ -13,8 +7,6 @@ import com.sisvac.model.Paciente;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
->>>>>>> 62bbd5329640b3c4934cc89524ee0cf9b48a0253:src/main/java/com/telas/CadastroDeUsuario.java
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -140,7 +132,6 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
                 jButtonCadastrarActionPerformed(evt);
             }
         });
-<<<<<<< HEAD:src/main/java/CadastroDeUsuario.java
 
         jRadioButtonAdministrador.setText("Administrador");
         jRadioButtonAdministrador.addActionListener(new java.awt.event.ActionListener() {
@@ -154,13 +145,7 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
         jRadioButtonAtendente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButtonAtendenteActionPerformed(evt);
-=======
 
-        jComboBoxCargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Selecione Uma Das Opções>", "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBoxCargo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxCargoActionPerformed(evt);
->>>>>>> 62bbd5329640b3c4934cc89524ee0cf9b48a0253:src/main/java/com/telas/CadastroDeUsuario.java
             }
         });
 
@@ -184,7 +169,6 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
                         .addGap(93, 93, 93))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-<<<<<<< HEAD:src/main/java/CadastroDeUsuario.java
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextFieldNomeUsuario)
                             .addComponent(jTextFieldEmail)
@@ -195,16 +179,6 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
                                 .addGap(26, 26, 26)
                                 .addComponent(jRadioButtonAtendente)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-=======
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jDateDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextFieldNomeUsuario)
-                                .addComponent(jTextFieldEmail)
-                                .addComponent(jTextFieldUnidadeDeSaude, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE))
-                            .addComponent(jComboBoxCargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(138, Short.MAX_VALUE))))
->>>>>>> 62bbd5329640b3c4934cc89524ee0cf9b48a0253:src/main/java/com/telas/CadastroDeUsuario.java
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -216,13 +190,8 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabelDataDeNascimento)
-<<<<<<< HEAD:src/main/java/CadastroDeUsuario.java
                     .addComponent(jDateChooserDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25)
-=======
-                    .addComponent(jDateDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
->>>>>>> 62bbd5329640b3c4934cc89524ee0cf9b48a0253:src/main/java/com/telas/CadastroDeUsuario.java
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabelCargo)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -260,7 +229,6 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldUnidadeDeSaudeActionPerformed
 
     private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
-<<<<<<< HEAD:src/main/java/CadastroDeUsuario.java
         
     }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
@@ -278,31 +246,6 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
         
        
     }//GEN-LAST:event_jRadioButtonAtendenteActionPerformed
-=======
-      //botão de cadastro de usuario
-      
-        Service<Funcionario> service = new Service(Funcionario.class);
-        Funcionario funcionario = new Funcionario();
-        
-        funcionario.setNome( this.jTextFieldNomeUsuario.getText() );
-
-        funcionario.setDT_NASCIMENTO(this.jDateDataNascimento.getDate() );
-        
-        //funcionario.setCargo( this.jComboBoxCargo.getSelectedIndex());
-
-        try {
-            service.create(funcionario);
-        } catch (Exception e){
-            javax.swing.JOptionPane.showMessageDialog(this,e.getMessage());
-        }
-        
-    }//GEN-LAST:event_jButtonCadastrarActionPerformed
-
-    private void jComboBoxCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCargoActionPerformed
-        // TODO add your handling code here:
-    
-    }//GEN-LAST:event_jComboBoxCargoActionPerformed
->>>>>>> 62bbd5329640b3c4934cc89524ee0cf9b48a0253:src/main/java/com/telas/CadastroDeUsuario.java
 
     /**
      * @param args the command line arguments
@@ -343,13 +286,8 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButtonCadastrar;
     private javax.swing.JButton jButtonVoltar;
-<<<<<<< HEAD:src/main/java/CadastroDeUsuario.java
     private com.toedter.calendar.JDateChooser jDateChooserDataNascimento;
     private com.toedter.calendar.JDayChooser jDayChooser1;
-=======
-    private javax.swing.JComboBox<String> jComboBoxCargo;
-    private com.toedter.calendar.JDateChooser jDateDataNascimento;
->>>>>>> 62bbd5329640b3c4934cc89524ee0cf9b48a0253:src/main/java/com/telas/CadastroDeUsuario.java
     private javax.swing.JLabel jLabelCargo;
     private javax.swing.JLabel jLabelDataDeNascimento;
     private javax.swing.JLabel jLabelEmail;

@@ -156,45 +156,33 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-<<<<<<< HEAD:src/main/java/Menu.form
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="2" name="C:\Users\elias\sisvac\src\main\java\img_icons\imagem-do-usuario-com-fundo-preto.png"/>
         </Property>
-=======
->>>>>>> 62bbd5329640b3c4934cc89524ee0cf9b48a0253:src/main/java/com/telas/Menu.form
         <Property name="text" type="java.lang.String" value="jLabel1"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-<<<<<<< HEAD:src/main/java/Menu.form
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="2" name="C:\Users\elias\sisvac\src\main\java\img_icons\injecao.png"/>
         </Property>
-=======
->>>>>>> 62bbd5329640b3c4934cc89524ee0cf9b48a0253:src/main/java/com/telas/Menu.form
         <Property name="text" type="java.lang.String" value="jLabel2"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-<<<<<<< HEAD:src/main/java/Menu.form
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="2" name="C:\Users\elias\sisvac\src\main\java\img_icons\linha.png"/>
         </Property>
-=======
->>>>>>> 62bbd5329640b3c4934cc89524ee0cf9b48a0253:src/main/java/com/telas/Menu.form
         <Property name="text" type="java.lang.String" value="jLabel3"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
-<<<<<<< HEAD:src/main/java/Menu.form
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="2" name="C:\Users\elias\sisvac\src\main\java\img_icons\relatorio-medico.png"/>
         </Property>
-=======
->>>>>>> 62bbd5329640b3c4934cc89524ee0cf9b48a0253:src/main/java/com/telas/Menu.form
         <Property name="text" type="java.lang.String" value="jLabel4"/>
       </Properties>
     </Component>
