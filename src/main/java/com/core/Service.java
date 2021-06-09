@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Service<T extends BaseModel> {
+    protected String extensionQuery;
     protected MainOperator operator;
     protected Class<T> instance;
     
@@ -22,7 +23,7 @@ public class Service<T extends BaseModel> {
         List<T> list = new ArrayList<>();
         ResultSet result;
         try{
-            result = this.operator.feat("SELECT * FROM " + this.getNewInstance().getTableName());
+            result = this.operator.feat("SELECT * FROM " + this.getNewInstance().getTableName() + " " + this.extensionQuery);
             while(result.next()){
                 T obj = this.getNewInstance();
 
@@ -39,6 +40,10 @@ public class Service<T extends BaseModel> {
         }
         
         return list;
+    }
+    
+    public void orderBy(String colunmName){
+        this.extensionQuery = (" ORDER BY " + colunmName);
     }
     
     public T find(Object param) throws SQLException, ReflectiveOperationException{
@@ -101,8 +106,12 @@ public class Service<T extends BaseModel> {
     public List<T> where(String query, Object... params) throws SQLException, ReflectiveOperationException {
         List<T> list = new ArrayList<>();
         
-        ResultSet result = this.operator.feat("SELECT * FROM " + this.getNewInstance().getTableName() + " WHERE "
-                + query, params);
+        String completeQuery = "SELECT * FROM " + this.getNewInstance().getTableName() + " WHERE "
+                + query + this.extensionQuery;
+        
+        System.out.println(completeQuery);
+        
+        ResultSet result = this.operator.feat( completeQuery, params );
         
         while(result.next()){
             T model = this.getNewInstance();
