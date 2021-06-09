@@ -1,3 +1,5 @@
+package com.telas;
+
 import com.core.Service;
 import com.sisvac.model.Paciente;
 import java.sql.SQLException;

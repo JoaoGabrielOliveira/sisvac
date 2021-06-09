@@ -6,9 +6,6 @@ import javax.swing.JOptionPane;
 
 public class Main {
     public static void main(String[] args) {
-        int num;
-        System.out.println("Hello World!!");
-        
-        num = Integer.parseInt(JOptionPane.showInputDialog("Digite or numero"));
+        new com.telas.Login().setVisible(true);
     }
 }
