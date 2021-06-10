@@ -278,7 +278,7 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
         funcionario.setSenha( this.jTextFieldSenha.getText() );
         
         //funcionario.setID_UNIDADE_SAUDE (LoginController.funcionarioLogado.getID_UNIDADE_SAUDE());       
-         // funcionario.setID_UNIDADE_SAUDE (1);    
+        funcionario.setID_UNIDADE_SAUDE(1);
 
         try {
             this.service.create(funcionario);

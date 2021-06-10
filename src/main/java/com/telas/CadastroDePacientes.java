@@ -165,9 +165,7 @@ public class CadastroDePacientes extends javax.swing.JFrame {
         Paciente paciente = new Paciente();
         
         paciente.setNome( this.jTextFieldNomePaciente.getText() );
-
         paciente.setDT_NASCIMENTO(this.jDateDataNascimento.getDate() );
-        
         paciente.setE_SAUDE( this.jCheckBox_ESaude.isSelected() );
 
         try {
