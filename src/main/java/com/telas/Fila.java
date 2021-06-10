@@ -22,12 +22,12 @@ public class Fila extends javax.swing.JFrame {
      */
     public Fila() {
         this.filaController = new FilaController();
-        this.filaController.pegarPacientes();
+        //this.filaController.pegarPacientes();
         
         initComponents();
         
-        this.atualizarTabela();
-        this.atualizarPaciente(this.filaController.getPacienteAtual());
+        //this.atualizarTabela();
+        //this.atualizarPaciente(this.filaController.getPacienteAtual());
     }
     
     private FilaController filaController;
@@ -47,10 +47,11 @@ public class Fila extends javax.swing.JFrame {
         panelPaciente = new javax.swing.JPanel();
         labelPacienteNome = new javax.swing.JLabel();
         labelPacienteIdade = new javax.swing.JLabel();
-        labelPacienteEndereco = new javax.swing.JLabel();
         jTextPacienteNome = new javax.swing.JTextField();
         jTextPacienteIdade = new javax.swing.JTextField();
-        jTextPacienteEndereco = new javax.swing.JTextField();
+        jTextPacienteId = new javax.swing.JTextField();
+        labelPacienteId = new javax.swing.JLabel();
+        jCheckBoxAreaSaude = new javax.swing.JCheckBox();
         labelTitulo1 = new javax.swing.JLabel();
         panelTabela = new javax.swing.JPanel();
         labelTitulo = new javax.swing.JLabel();
@@ -84,36 +85,51 @@ public class Fila extends javax.swing.JFrame {
         labelPacienteIdade.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         labelPacienteIdade.setText("Idade:");
 
-        labelPacienteEndereco.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        labelPacienteEndereco.setText("Endereço:");
-
         jTextPacienteNome.setEditable(false);
 
         jTextPacienteIdade.setEditable(false);
 
-        jTextPacienteEndereco.setEditable(false);
+        jTextPacienteId.setEditable(false);
+
+        labelPacienteId.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        labelPacienteId.setText("Id:");
+
+        jCheckBoxAreaSaude.setText(" É da área de saúde");
+        jCheckBoxAreaSaude.setEnabled(false);
+        jCheckBoxAreaSaude.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxAreaSaudeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelPacienteLayout = new javax.swing.GroupLayout(panelPaciente);
         panelPaciente.setLayout(panelPacienteLayout);
         panelPacienteLayout.setHorizontalGroup(
             panelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelPacienteLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPacienteLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelPacienteNome)
-                    .addComponent(labelPacienteIdade)
-                    .addComponent(labelPacienteEndereco))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextPacienteIdade, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
-                    .addComponent(jTextPacienteNome)
-                    .addComponent(jTextPacienteEndereco))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(panelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jCheckBoxAreaSaude, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panelPacienteLayout.createSequentialGroup()
+                        .addGroup(panelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelPacienteNome)
+                            .addComponent(labelPacienteIdade)
+                            .addComponent(labelPacienteId, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(panelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextPacienteId, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
+                            .addComponent(jTextPacienteIdade)
+                            .addComponent(jTextPacienteNome))))
+                .addContainerGap())
         );
         panelPacienteLayout.setVerticalGroup(
             panelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPacienteLayout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addGroup(panelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelPacienteId)
+                    .addComponent(jTextPacienteId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(panelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelPacienteNome, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jTextPacienteNome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -122,10 +138,8 @@ public class Fila extends javax.swing.JFrame {
                     .addComponent(labelPacienteIdade, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jTextPacienteIdade, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(panelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextPacienteEndereco, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelPacienteEndereco, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(27, 27, 27))
+                .addComponent(jCheckBoxAreaSaude)
+                .addGap(9, 9, 9))
         );
 
         labelPacienteNome.getAccessibleContext().setAccessibleName("Fila de Vacinação");
@@ -142,7 +156,7 @@ public class Fila extends javax.swing.JFrame {
                 .addGroup(panelMensagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelMensagemLayout.createSequentialGroup()
                         .addComponent(jButtonVacinar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
                         .addComponent(jButtonAusentar))
                     .addGroup(panelMensagemLayout.createSequentialGroup()
                         .addComponent(labelTitulo1)
@@ -272,17 +286,22 @@ public class Fila extends javax.swing.JFrame {
         this.atualizarTabela();
         this.atualizarPaciente(this.filaController.getPacienteAtual());
     }//GEN-LAST:event_jButtonAtualizarActionPerformed
+
+    private void jCheckBoxAreaSaudeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxAreaSaudeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBoxAreaSaudeActionPerformed
     
     private void atualizarTabela(){
-        this.filaController.limparTabela();
-        this.filaController.adicionarPacientesATabela();
+        //this.filaController.limparTabela();
+        //this.filaController.adicionarPacientesATabela();
         this.jTable1.setModel(this.filaController.modeloPadrao);
     }
     
     private void atualizarPaciente(Paciente paciente){
+        this.jTextPacienteId.setText(paciente.getId().toString());
         this.jTextPacienteNome.setText(paciente.getNome());
         this.jTextPacienteIdade.setText(paciente.getDT_NASCIMENTO().toString());
-        //this.jTextPacienteNome.setText(paciente.getNome());        
+        this.jCheckBoxAreaSaude.setSelected(paciente.getE_SAUDE());
     }
     
     /**
@@ -341,12 +360,13 @@ public class Fila extends javax.swing.JFrame {
     private javax.swing.JButton jButtonAtualizar;
     private javax.swing.JButton jButtonAusentar;
     private javax.swing.JButton jButtonVacinar;
+    private javax.swing.JCheckBox jCheckBoxAreaSaude;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextPacienteEndereco;
+    private javax.swing.JTextField jTextPacienteId;
     private javax.swing.JTextField jTextPacienteIdade;
     private javax.swing.JTextField jTextPacienteNome;
-    private javax.swing.JLabel labelPacienteEndereco;
+    private javax.swing.JLabel labelPacienteId;
     private javax.swing.JLabel labelPacienteIdade;
     private javax.swing.JLabel labelPacienteNome;
     private javax.swing.JLabel labelTitulo;
