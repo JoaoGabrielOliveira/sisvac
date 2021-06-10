@@ -170,7 +170,6 @@ public class Relatorio extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCalcMediaActionPerformed
 
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
-        new Menu().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonVoltarActionPerformed
 
