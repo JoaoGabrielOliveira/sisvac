@@ -4,6 +4,7 @@ package com.telas;
 import javax.swing.event.ListSelectionEvent;
 import com.sisvac.controller.FilaController;
 import com.sisvac.model.Paciente;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -58,6 +59,8 @@ public class Fila extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButtonAtualizar = new javax.swing.JButton();
+        labelNivelPrioridade = new javax.swing.JLabel();
+        jComboBoxPrioridade = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Fila de Vacinação");
@@ -96,11 +99,6 @@ public class Fila extends javax.swing.JFrame {
 
         jCheckBoxAreaSaude.setText(" É da área de saúde");
         jCheckBoxAreaSaude.setEnabled(false);
-        jCheckBoxAreaSaude.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBoxAreaSaudeActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout panelPacienteLayout = new javax.swing.GroupLayout(panelPaciente);
         panelPaciente.setLayout(panelPacienteLayout);
@@ -221,6 +219,21 @@ public class Fila extends javax.swing.JFrame {
             }
         });
 
+        labelNivelPrioridade.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        labelNivelPrioridade.setText("Nivel de Prioridade:");
+
+        jComboBoxPrioridade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3" }));
+        jComboBoxPrioridade.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jComboBoxPrioridadeFocusLost(evt);
+            }
+        });
+        jComboBoxPrioridade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxPrioridadeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelTabelaLayout = new javax.swing.GroupLayout(panelTabela);
         panelTabela.setLayout(panelTabelaLayout);
         panelTabelaLayout.setHorizontalGroup(
@@ -232,17 +245,26 @@ public class Fila extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTabelaLayout.createSequentialGroup()
                         .addComponent(labelTitulo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonAtualizar)))
+                        .addComponent(jButtonAtualizar))
+                    .addGroup(panelTabelaLayout.createSequentialGroup()
+                        .addComponent(labelNivelPrioridade)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jComboBoxPrioridade, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         panelTabelaLayout.setVerticalGroup(
             panelTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelTabelaLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(panelTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(5, 5, 5)
+                .addGroup(panelTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonAtualizar)
                     .addComponent(labelTitulo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelTabelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelNivelPrioridade, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jComboBoxPrioridade, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -286,9 +308,16 @@ public class Fila extends javax.swing.JFrame {
         this.atualizarTabela();
     }//GEN-LAST:event_jButtonAtualizarActionPerformed
 
-    private void jCheckBoxAreaSaudeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxAreaSaudeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBoxAreaSaudeActionPerformed
+    private void jComboBoxPrioridadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxPrioridadeActionPerformed
+        int prioriodade = this.jComboBoxPrioridade.getSelectedIndex() + 1;
+        this.filaController.mudarPrioridadeSeNecessario(prioriodade);
+        this.filaController.pegarPacientes();
+    }//GEN-LAST:event_jComboBoxPrioridadeActionPerformed
+
+    private void jComboBoxPrioridadeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jComboBoxPrioridadeFocusLost
+        JOptionPane.showMessageDialog(null, "Mudando a prioridade da fila", "SisVac - Prioridade",JOptionPane.INFORMATION_MESSAGE);
+        this.atualizarTabela();
+    }//GEN-LAST:event_jComboBoxPrioridadeFocusLost
     
     private void atualizarTabela(){
         this.filaController.limparTabela();
@@ -343,11 +372,13 @@ public class Fila extends javax.swing.JFrame {
     private javax.swing.JButton jButtonAusentar;
     private javax.swing.JButton jButtonVacinar;
     private javax.swing.JCheckBox jCheckBoxAreaSaude;
+    private javax.swing.JComboBox<String> jComboBoxPrioridade;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextPacienteId;
     private javax.swing.JTextField jTextPacienteIdade;
     private javax.swing.JTextField jTextPacienteNome;
+    private javax.swing.JLabel labelNivelPrioridade;
     private javax.swing.JLabel labelPacienteId;
     private javax.swing.JLabel labelPacienteIdade;
     private javax.swing.JLabel labelPacienteNome;
