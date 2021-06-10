@@ -3,6 +3,8 @@ package com.sisvac.model;
 import com.core.model.BaseModel;
 import java.util.Date;
 
+
+
 public class Funcionario extends BaseModel
 {
     private Integer id;
@@ -12,10 +14,20 @@ public class Funcionario extends BaseModel
     private String email;
     private String senha;
     private Date DT_NASCIMENTO;
-    //private Integer idUnidadeSaude;
+    private Integer ID_UNIDADE_SAUDE;
     
-    public Funcionario(){
-        this.setTableName("tb_funcionario");
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+    
+    public Funcionario() {
+    this.setTableName("tb_funcionario");
+
     }
     
     public Integer getId(){
@@ -54,16 +66,10 @@ public class Funcionario extends BaseModel
     public void setDT_NASCIMENTO(Date param){
         this.DT_NASCIMENTO = param;
     }
-    public void setSenha(String param){
-        this.senha = param;
+    public Integer getID_UNIDADE_SAUDE(){
+        return this.ID_UNIDADE_SAUDE;
     }
-    public String getSenha(){
-        return this.senha;
+    public void setID_UNIDADE_SAUDE(Integer param){
+        this.ID_UNIDADE_SAUDE = param;
     }
-    /* public Integer getIdUnidadeSaude(){
-        return this.idUnidadeSaude;
-    }
-    public void setIdUnidadeSaude(Integer param){
-        this.idUnidadeSaude = param;
-    }*/
 }

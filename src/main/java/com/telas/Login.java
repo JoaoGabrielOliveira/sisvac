@@ -4,6 +4,7 @@ package com.telas;
 import com.core.Service;
 import com.sisvac.controller.LoginController;
 import com.sisvac.model.Paciente;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -42,7 +43,7 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
 
         Email.setBorder(javax.swing.BorderFactory.createTitledBorder("Email"));
         Email.addActionListener(new java.awt.event.ActionListener() {
@@ -137,17 +138,18 @@ public class Login extends javax.swing.JFrame {
         //LoginController c = new LoginController();
         
         LoginController.login(this.Email.getText(), String.valueOf(this.Senha.getPassword()));
-        if(LoginController.funcionarioLogado != null){
-            String cargo = LoginController.funcionarioLogado.getCargo();
-            if("adm".equals(cargo))
-                new Menu().setVisible(true);
-            else if("atendente".equals(cargo))
-                new Fila().setVisible(true);
-                
+
+        
+        if (LoginController.estalogado()) {
+        JOptionPane.showMessageDialog(null, "Seja Bem Vindo!");
+          new Menu().setVisible(true);
+        this.dispose();
+    } else {
+            JOptionPane.showMessageDialog(null, "Dados Invalidos");
         }
-        else {
-            javax.swing.JOptionPane.showMessageDialog(null,"Funcionario não cadastrado.\nFala com o administrador da sua Unidade de Saúde.");
-        }
+        
+       
+
     }//GEN-LAST:event_botaoentrarActionPerformed
 
     /**
