@@ -18,16 +18,15 @@ public class FilaController {
     private List<Paciente> listaPacientes;
     //private Integer nivelPrioridade;
     private Paciente pacienteAtual;
-    private Integer indiceLista;
-    
     
     public FilaController(){
         this.service = new Service(Paciente.class);
+        this.service.orderBy("dt_nascimento, e_saude DESC");
+        
         this.limparTabela();
-        this.indiceLista = 0;
         try{
             this.listaPacientes = this.service.where("vacinado = ?", false);
-            this.setPacienteAtual(indiceLista);
+            this.setPacienteAtual(0);
             this.adicionarPacientesATabela();
         }
         catch(Exception e){
@@ -40,11 +39,22 @@ public class FilaController {
     }
 
     public void confirmarVacinacao() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try{
+            this.pacienteAtual.setVacinado(true);
+            this.service.update(this.pacienteAtual, "id = ?", this.pacienteAtual.getId());
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
     }
 
     public void proximoFila() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(!this.listaPacientes.isEmpty()){
+            this.listaPacientes.remove(0);
+            this.setPacienteAtual(0);
+            this.limparTabela();
+            this.adicionarPacientesATabela();    
+        } 
     }
     
     public void adicionarPacientesATabela() {

@@ -267,6 +267,7 @@ public class Fila extends javax.swing.JFrame {
 
     private void jButtonVacinarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVacinarActionPerformed
         this.filaController.confirmarVacinacao();
+        this.filaController.proximoFila();
         this.atualizarTabela();
         this.atualizarPaciente(this.filaController.getPacienteAtual());
     }//GEN-LAST:event_jButtonVacinarActionPerformed
@@ -282,9 +283,7 @@ public class Fila extends javax.swing.JFrame {
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jButtonAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtualizarActionPerformed
-        //this.filaController.pegarPacientes();
         this.atualizarTabela();
-        this.atualizarPaciente(this.filaController.getPacienteAtual());
     }//GEN-LAST:event_jButtonAtualizarActionPerformed
 
     private void jCheckBoxAreaSaudeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxAreaSaudeActionPerformed
@@ -292,9 +291,10 @@ public class Fila extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBoxAreaSaudeActionPerformed
     
     private void atualizarTabela(){
-        //this.filaController.limparTabela();
-        //this.filaController.adicionarPacientesATabela();
+        this.filaController.limparTabela();
+        this.filaController.adicionarPacientesATabela();
         this.jTable1.setModel(this.filaController.modeloPadrao);
+        this.atualizarPaciente(this.filaController.getPacienteAtual());
     }
     
     private void atualizarPaciente(Paciente paciente){
