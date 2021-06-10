@@ -67,7 +67,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Documents\\sisvac\\src\\main\\java\\img\\icons\\logosisvac.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\elias\\sisvac\\src\\main\\java\\img\\icons\\logosisvac.png")); // NOI18N
         jLabel2.setText("jLabel2");
 
         Senha.setBorder(javax.swing.BorderFactory.createTitledBorder("Senha"));
@@ -129,7 +129,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_EmailActionPerformed
 
     private void botaosairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaosairActionPerformed
-       
+       System.exit(0);
         
     }//GEN-LAST:event_botaosairActionPerformed
 
