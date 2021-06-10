@@ -18,14 +18,17 @@ public class FilaController {
     private List<Paciente> listaPacientes;
     //private Integer nivelPrioridade;
     private Paciente pacienteAtual;
+    private Integer indiceLista;
     
     
     public FilaController(){
         this.service = new Service(Paciente.class);
-        this.modeloPadrao = new DefaultTableModel(new Object[]{"Id", "Nome"},0);
+        this.limparTabela();
+        this.indiceLista = 0;
         try{
             this.listaPacientes = this.service.where("vacinado = ?", false);
-            this.pacienteAtual = this.listaPacientes.get(0);
+            this.setPacienteAtual(indiceLista);
+            this.adicionarPacientesATabela();
         }
         catch(Exception e){
             e.printStackTrace();
@@ -45,15 +48,25 @@ public class FilaController {
     }
     
     public void adicionarPacientesATabela() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.listaPacientes.forEach(paciente -> {
+            this.adicionarPacientesATabela(paciente);
+        });
+    }
+    
+    public void adicionarPacientesATabela(Paciente p) {
+        this.modeloPadrao.addRow(new Object[]{p.getId(), p.getNome()});
     }
 
     public void limparTabela() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.modeloPadrao = new DefaultTableModel(new Object[]{"Id", "Nome"},0);
     }
     
     public Paciente getPacienteAtual() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.pacienteAtual;
+    }
+    
+    public void setPacienteAtual(Integer indice){
+        this.pacienteAtual = this.listaPacientes.get(indice);
     }
 
     

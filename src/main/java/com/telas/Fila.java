@@ -26,8 +26,8 @@ public class Fila extends javax.swing.JFrame {
         
         initComponents();
         
-        //this.atualizarTabela();
-        //this.atualizarPaciente(this.filaController.getPacienteAtual());
+        this.atualizarTabela();
+        this.atualizarPaciente(this.filaController.getPacienteAtual());
     }
     
     private FilaController filaController;
@@ -282,7 +282,7 @@ public class Fila extends javax.swing.JFrame {
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jButtonAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtualizarActionPerformed
-        this.filaController.pegarPacientes();
+        //this.filaController.pegarPacientes();
         this.atualizarTabela();
         this.atualizarPaciente(this.filaController.getPacienteAtual());
     }//GEN-LAST:event_jButtonAtualizarActionPerformed
@@ -334,28 +334,10 @@ public class Fila extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                Fila fila = new Fila();
-                
-                fila.loadCustomEvents();
-                fila.setVisible(true);
+                new Fila().setVisible(true);
             }
         });
     }
-    
-    private void loadCustomEvents(){
-        
-        this.jTable1.getSelectionModel().addListSelectionListener(new javax.swing.event.ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
-                int id = (int)jTable1.getValueAt(jTable1.getSelectedRow(), 0);
-                
-                
-            }
-        });
-        
-        
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAtualizar;
     private javax.swing.JButton jButtonAusentar;
