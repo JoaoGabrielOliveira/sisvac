@@ -23,10 +23,14 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
     /**
      * Creates new form CadastroDeUsuario
      */
+    public Service<Funcionario> service;
+    public int id;
+    
     public CadastroDeUsuario() {
         initComponents();
+        this.service = new Service(Funcionario.class);
     }
-    public int id;
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -178,61 +182,48 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(211, 211, 211)
+                        .addComponent(jButtonVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonAtualizar)
-                        .addGap(31, 31, 31)
-                        .addComponent(jButtonExcluir))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabelDataDeNascimento)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jRadioButtonAtendente)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jRadioButtonAdministrador))
-                                    .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jDateDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(218, 218, 218))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(66, 66, 66)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabelNomeUsuario)
-                                            .addComponent(jLabelCargo)
-                                            .addComponent(jLabelEmail)))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabelUnidadeDeSaude)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldNomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(jButtonVoltar)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonExcluir)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonCadastrar))
                     .addComponent(jButtonPesquisar)
-                    .addComponent(jButtonCadastrar))
-                .addGap(52, 52, 52))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelUnidadeDeSaude)
+                            .addComponent(jLabelNomeUsuario)
+                            .addComponent(jLabelDataDeNascimento)
+                            .addComponent(jLabelCargo)
+                            .addComponent(jLabelEmail))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextFieldEmail, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jTextFieldNomeUsuario, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jDateDataNascimento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jRadioButtonAtendente)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jRadioButtonAdministrador))
+                            .addComponent(jTextFieldSenha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(42, 42, 42))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
+                .addContainerGap()
+                .addComponent(jButtonPesquisar)
+                .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelNomeUsuario)
-                    .addComponent(jTextFieldNomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonPesquisar))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jTextFieldNomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jDateDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelDataDeNascimento))
                 .addGap(32, 32, 32)
@@ -248,12 +239,12 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelUnidadeDeSaude)
                     .addComponent(jTextFieldSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonCadastrar)
-                    .addComponent(jButtonVoltar)
+                    .addComponent(jButtonExcluir)
                     .addComponent(jButtonAtualizar)
-                    .addComponent(jButtonExcluir))
+                    .addComponent(jButtonCadastrar)
+                    .addComponent(jButtonVoltar))
                 .addContainerGap())
         );
 
@@ -274,7 +265,26 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldSenhaActionPerformed
 
     private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
+        Funcionario funcionario = new Funcionario();
         
+        funcionario.setNome( this.jTextFieldNomeUsuario.getText() );
+
+        funcionario.setDT_NASCIMENTO(this.jDateDataNascimento.getDate() );
+        
+        funcionario.setEmail( this.jTextFieldEmail.getText() );
+        
+        funcionario.setCargo( this.jRadioButtonAtendente.isSelected() ? "Adm" : "Atendente"); 
+         
+        funcionario.setSenha( this.jTextFieldSenha.getText() );
+        
+        //funcionario.setID_UNIDADE_SAUDE (LoginController.funcionarioLogado.getID_UNIDADE_SAUDE());       
+         // funcionario.setID_UNIDADE_SAUDE (1);    
+
+        try {
+            this.service.create(funcionario);
+        } catch (Exception e){
+            javax.swing.JOptionPane.showMessageDialog(this,e.getMessage());
+        }        
     }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
@@ -293,8 +303,6 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButtonAtendenteActionPerformed
 
     private void jButtonAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtualizarActionPerformed
-        
-        Service<Funcionario> service = new Service(Funcionario.class);
         Funcionario funcionario = new Funcionario();
         
         funcionario.setNome( this.jTextFieldNomeUsuario.getText() );
@@ -313,16 +321,15 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
          // funcionario.setID_UNIDADE_SAUDE (1);    
 
         try {
-            service.update(funcionario);
+            this.service.update(funcionario);
         } catch (Exception e){
             javax.swing.JOptionPane.showMessageDialog(this,e.getMessage());
         }
     }//GEN-LAST:event_jButtonAtualizarActionPerformed
 
     private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
-        Service<Funcionario> service = new Service(Funcionario.class);
         try {
-            service.delete(this.id);
+            this.service.delete(this.id);
         } catch (SQLException ex) {
             Logger.getLogger(CadastroDeUsuario.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ReflectiveOperationException ex) {
@@ -331,13 +338,12 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonExcluirActionPerformed
 
     private void jButtonPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisarActionPerformed
-        Service<Funcionario> service = new Service(Funcionario.class);
         int id = Integer.parseInt(JOptionPane.showInputDialog("Digite o ID que deseja encontrar!"));
                    
         Funcionario  funcionario = new Funcionario();
 
         try {
-            funcionario = service.find(id);
+            funcionario = this.service.find(id);
         } catch (SQLException ex) {
             Logger.getLogger(CadastroDeUsuario.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ReflectiveOperationException ex) {
