@@ -273,7 +273,7 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
         
         funcionario.setEmail( this.jTextFieldEmail.getText() );
         
-        funcionario.setCargo( this.jRadioButtonAtendente.isSelected() ? "Adm" : "Atendente"); 
+        funcionario.setCargo( this.jRadioButtonAtendente.isSelected() ? "Atendente" : "Adm"); 
          
         funcionario.setSenha( this.jTextFieldSenha.getText() );
         
@@ -288,7 +288,7 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
-        new Menu().setVisible(true);
+       
         this.dispose();
     }//GEN-LAST:event_jButtonVoltarActionPerformed
 
