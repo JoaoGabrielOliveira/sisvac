@@ -62,7 +62,7 @@ public class Service<T extends BaseModel> {
     
     public T findBy(String columns, Object... params) throws SQLException, ReflectiveOperationException{
         String query = this.getBindParams(columns.split(","));
-        
+
         return this.where(query, params).get(0);
     }
     
@@ -80,7 +80,7 @@ public class Service<T extends BaseModel> {
         
         String query = "INSERT INTO " + objectInstance.getTableName() + "(" + String.join(",", objectInstance.getColumns()) + ")"
         + " VALUES (" + this.getInterrogativeQuote(params.length) + ")";
-
+        
         Boolean result = this.operator.execute(query, params);
         
         return result;
@@ -89,34 +89,25 @@ public class Service<T extends BaseModel> {
     public Boolean create(T model) throws SQLException, ReflectiveOperationException{
         return this.create(model.getValues());
     }
-    
-    public Boolean update(T model) throws SQLException, ReflectiveOperationException{
-        T objectInstance = this.getNewInstance();
-        
-        String query = "UPDATE " + objectInstance.getTableName() + " SET " + this.getBindParams(model.getColumns()) +
-                " WHERE " + model.getPrimatyKeyName() + "=?";
-        
-        Object[] params = model.getValues();
-        params = Arrays.copyOf(params, params.length + 1);
-        params[params.length - 1] = model.getPrimatyKeyValue();
-        
-        return this.operator.execute(query, params);
+
+    public Boolean update(T model) throws SQLException, ReflectiveOperationException{        
+        return this.update(model, model.getPrimatyKeyName() + " = ?", model.getPrimatyKeyValue());
     }
     
-        public Boolean update(T model, String whereCondition, Object... whereParams) throws SQLException, ReflectiveOperationException{
-        T objectInstance = this.getNewInstance();
+    public Boolean update(T model, String whereCondition, Object... whereParams) throws SQLException, ReflectiveOperationException{
+        String query = "UPDATE " + model.getTableName() + " SET " + this.getBindParams(model.getColumns(), ",") + " WHERE " + whereCondition;
         
-        String query = "UPDATE " + objectInstance.getTableName() + " SET " + this.getBindParams(model.getColumns()) +
-                " WHERE " + whereCondition + this.extensionQuery;
+        Object[] modelParams = model.getValues();
+        Object[] params = new Object[modelParams.length + whereParams.length];
         
-        Object[] params = model.getValues();
-        int i = params.length;
-        params = Arrays.copyOf(params, whereParams.length);
-        
-        for(int j = 0; i < params.length; i++, j++){
-            params[i] = whereParams[j];
+        for(int i = 0; i < modelParams.length; i++){
+            params[i] = modelParams[i];
         }
-
+        
+        for(int i = 0, j = modelParams.length; i < whereParams.length; i++, j++){
+            params[j] = whereParams[i];
+        }
+        
         return this.operator.execute(query, params);
     }
     
