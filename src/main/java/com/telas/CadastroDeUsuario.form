@@ -90,26 +90,39 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jButtonCadastrar" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jButtonPesquisar" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabelUnidadeDeSaude" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelNomeUsuario" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelDataDeNascimento" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelCargo" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelEmail" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jTextFieldEmail" alignment="1" max="32767" attributes="0"/>
-                          <Component id="jTextFieldNomeUsuario" alignment="1" max="32767" attributes="0"/>
-                          <Component id="jDateDataNascimento" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jLabelNomeUsuario" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jTextFieldNomeUsuario" min="-2" pref="326" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jButtonPesquisar" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="jRadioButtonAtendente" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelDataDeNascimento" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jDateDataNascimento" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="218" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabelCargo" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jRadioButtonAtendente" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jRadioButtonAdministrador" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jTextFieldSenha" alignment="1" min="-2" pref="326" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabelEmail" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jTextFieldEmail" min="-2" pref="326" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabelUnidadeDeSaude" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jTextFieldSenha" min="-2" pref="326" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
               </Group>

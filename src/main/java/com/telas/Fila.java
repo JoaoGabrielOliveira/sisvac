@@ -54,6 +54,7 @@ public class Fila extends javax.swing.JFrame {
         labelPacienteId = new javax.swing.JLabel();
         jCheckBoxAreaSaude = new javax.swing.JCheckBox();
         labelTitulo1 = new javax.swing.JLabel();
+        jButtonVoltar = new javax.swing.JButton();
         panelTabela = new javax.swing.JPanel();
         labelTitulo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -145,6 +146,13 @@ public class Fila extends javax.swing.JFrame {
         labelTitulo1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         labelTitulo1.setText("Paciente a ser vacinado");
 
+        jButtonVoltar.setText("Voltar");
+        jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVoltarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelMensagemLayout = new javax.swing.GroupLayout(panelMensagem);
         panelMensagem.setLayout(panelMensagemLayout);
         panelMensagemLayout.setHorizontalGroup(
@@ -153,12 +161,14 @@ public class Fila extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panelMensagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelMensagemLayout.createSequentialGroup()
+                        .addComponent(jButtonVoltar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonVacinar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonAusentar))
                     .addGroup(panelMensagemLayout.createSequentialGroup()
                         .addComponent(labelTitulo1)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 125, Short.MAX_VALUE))
                     .addComponent(panelPaciente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -172,7 +182,8 @@ public class Fila extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addGroup(panelMensagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonVacinar)
-                    .addComponent(jButtonAusentar))
+                    .addComponent(jButtonAusentar)
+                    .addComponent(jButtonVoltar))
                 .addContainerGap())
         );
 
@@ -318,6 +329,11 @@ public class Fila extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Mudando a prioridade da fila", "SisVac - Prioridade",JOptionPane.INFORMATION_MESSAGE);
         this.atualizarTabela();
     }//GEN-LAST:event_jComboBoxPrioridadeFocusLost
+
+    private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
+        new Menu().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonVoltarActionPerformed
     
     private void atualizarTabela(){
         this.filaController.limparTabela();
@@ -371,6 +387,7 @@ public class Fila extends javax.swing.JFrame {
     private javax.swing.JButton jButtonAtualizar;
     private javax.swing.JButton jButtonAusentar;
     private javax.swing.JButton jButtonVacinar;
+    private javax.swing.JButton jButtonVoltar;
     private javax.swing.JCheckBox jCheckBoxAreaSaude;
     private javax.swing.JComboBox<String> jComboBoxPrioridade;
     private javax.swing.JScrollPane jScrollPane1;
