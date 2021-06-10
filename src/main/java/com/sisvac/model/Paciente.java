@@ -1,6 +1,7 @@
 package com.sisvac.model;
 
 import com.core.model.BaseModel;
+import java.time.Instant;
 import java.util.Date;
 
 public class Paciente extends BaseModel {
@@ -10,6 +11,7 @@ public class Paciente extends BaseModel {
     //private Integer idEndereco;
     private Boolean E_SAUDE;
     private Date DT_NASCIMENTO;
+    private Boolean vacinado;
 
     public Paciente() {
         this.setTableName("tb_paciente");
@@ -54,8 +56,18 @@ public class Paciente extends BaseModel {
     public void setDT_NASCIMENTO(Date param) {
         this.DT_NASCIMENTO = param;
     }
-
-    public void setEmail(String text) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    public Boolean getVacinado() {
+        return this.vacinado;
     }
+
+    public void setVacinado(Boolean param) {
+        this.vacinado = param;
+    }
+    
+    public Integer getIdade(){
+        return java.time.LocalDate.now().minusYears(this.DT_NASCIMENTO.getTime()).getYear();
+    }
+
+    
 }
