@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Service<T extends BaseModel> {
+    protected String extensionQuery;
     protected MainOperator operator;
     protected Class<T> instance;
     
@@ -22,7 +23,7 @@ public class Service<T extends BaseModel> {
         List<T> list = new ArrayList<>();
         ResultSet result;
         try{
-            result = this.operator.feat("SELECT * FROM " + this.getNewInstance().getTableName());
+            result = this.operator.feat("SELECT * FROM " + this.getNewInstance().getTableName() + " " + this.extensionQuery);
             while(result.next()){
                 T obj = this.getNewInstance();
 
@@ -41,6 +42,10 @@ public class Service<T extends BaseModel> {
         return list;
     }
     
+    public void orderBy(String colunmName){
+        this.extensionQuery = (" ORDER BY " + colunmName);
+    }
+    
     public T find(Object param) throws SQLException, ReflectiveOperationException{
         T objectInstance = this.getNewInstance();
         
@@ -55,29 +60,10 @@ public class Service<T extends BaseModel> {
         return objectInstance;
     }
     
-    public T findBy(String... params) throws SQLException, ReflectiveOperationException{
-        T objectInstance = this.getNewInstance();
+    public T findBy(String columns, Object... params) throws SQLException, ReflectiveOperationException{
+        String query = this.getBindParams(columns.split(","));
         
-        String[] columnsParams = new String[params.length];
-        Object[] valuesParams = new Object[params.length];
-        
-        for(int i = 0; i < params.length; i++){
-            String[] dado = params[i].split(":");
-            
-            columnsParams[i] = dado[0];
-            valuesParams[i] = dado[1];
-        }
-        
-        String query = "SELECT * FROM " + objectInstance.getTableName() +
-            " WHERE " + this.getBindParams(columnsParams);
-        
-        ResultSet result = this.operator.feat(query, valuesParams);
-
-        while(result.next()){
-            objectInstance.mapToModel(result);
-        }
-
-        return objectInstance;
+        return this.where(query, params).get(0);
     }
     
     public Boolean delete(Object param) throws SQLException, ReflectiveOperationException{
@@ -120,8 +106,12 @@ public class Service<T extends BaseModel> {
     public List<T> where(String query, Object... params) throws SQLException, ReflectiveOperationException {
         List<T> list = new ArrayList<>();
         
-        ResultSet result = this.operator.feat("SELECT * FROM " + this.getNewInstance().getTableName() + " WHERE "
-                + query, params);
+        String completeQuery = "SELECT * FROM " + this.getNewInstance().getTableName() + " WHERE "
+                + query + this.extensionQuery;
+        
+        System.out.println(completeQuery);
+        
+        ResultSet result = this.operator.feat( completeQuery, params );
         
         while(result.next()){
             T model = this.getNewInstance();
@@ -145,11 +135,15 @@ public class Service<T extends BaseModel> {
     }
     
     protected String getBindParams(String[] columns){
+        return this.getBindParams(columns,"AND");
+    }
+    
+    protected String getBindParams(String[] columns, String delimitador){
         String[] values = new String[columns.length];
         for (int i = 0; i < columns.length; i++){
             values[i] = columns[i] + "=?";
         }
-        return String.join(",", values);
+        return String.join(" " + delimitador + " ", values);
     }
     
     protected MainOperator getOperator(){

@@ -12,9 +12,10 @@ public class Funcionario extends BaseModel
     //private Integer idEndereco;
     private String cargo;
     private String email;
+    private String senha;
     private Date DT_NASCIMENTO;
     private Integer ID_UNIDADE_SAUDE;
-    private String senha;
+    
 
     public String getSenha() {
         return senha;
@@ -26,6 +27,7 @@ public class Funcionario extends BaseModel
     
     public Funcionario() {
     this.setTableName("tb_funcionario");
+
     }
     
     public Integer getId(){

@@ -1,7 +1,6 @@
 package com.telas;
 
 
-import Menu;
 import com.core.Service;
 import com.sisvac.controller.LoginController;
 import com.sisvac.model.Paciente;
@@ -139,6 +138,7 @@ public class Login extends javax.swing.JFrame {
         //LoginController c = new LoginController();
         
         LoginController.login(this.Email.getText(), String.valueOf(this.Senha.getPassword()));
+
         
         if (LoginController.estalogado()) {
         JOptionPane.showMessageDialog(null, "Seja Bem Vindo!");
@@ -149,6 +149,7 @@ public class Login extends javax.swing.JFrame {
         }
         
        
+
     }//GEN-LAST:event_botaoentrarActionPerformed
 
     /**
