@@ -2,10 +2,10 @@ package com.sisvac.controller;
 
 import com.core.Service;
 import com.sisvac.model.Paciente;
-import java.sql.SQLException;
+import com.sisvac.model.Vacinado;
+
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import javax.swing.JOptionPane;
 
 import javax.swing.table.DefaultTableModel;
@@ -14,6 +14,7 @@ import javax.swing.table.DefaultTableModel;
 public class FilaController {
     public DefaultTableModel modeloPadrao;
     private final Service<Paciente> service;
+    private final Service<Vacinado> serviceVacinado;
     
     private List<Paciente> listaPacientes;
     private Integer nivelPrioridade;
@@ -21,6 +22,8 @@ public class FilaController {
     
     public FilaController(){
         this.service = new Service(Paciente.class);
+        this.serviceVacinado = new Service(Vacinado.class);
+
         this.service.orderBy("dt_nascimento, e_saude DESC");
         
         this.limparTabela();
@@ -78,6 +81,14 @@ public class FilaController {
         try{
             this.pacienteAtual.setVacinado(true);
             this.service.update(this.pacienteAtual, "id = ?", this.pacienteAtual.getId());
+            
+            Vacinado vacinado = new Vacinado();
+            
+            vacinado.setId_paciente(this.pacienteAtual.getId());
+            vacinado.setId_unidade_saude(LoginController.funcionarioLogado.getID_UNIDADE_SAUDE());
+            vacinado.setData_vacinacao(java.time.LocalDate.now());
+            
+            this.serviceVacinado.create(vacinado);
         }
         catch(Exception e){
             e.printStackTrace();
