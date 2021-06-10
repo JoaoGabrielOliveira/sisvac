@@ -2,6 +2,7 @@ package com.telas;
 
 
 import com.core.Service;
+import com.sisvac.controller.LoginController;
 import com.sisvac.model.Funcionario;
 import com.sisvac.model.Paciente;
 import java.sql.SQLException;
@@ -353,7 +354,8 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
         Funcionario  funcionario = new Funcionario();
 
         try {
-            funcionario = this.service.find(id);
+            funcionario = this.service.where("id = ? AND id_unidade_saude = ?",
+                    id, LoginController.funcionarioLogado.getID_UNIDADE_SAUDE() ).get(0);
         } catch (SQLException ex) {
             Logger.getLogger(CadastroDeUsuario.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ReflectiveOperationException ex) {
