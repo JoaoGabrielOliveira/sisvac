@@ -22,8 +22,7 @@ public class Login extends javax.swing.JFrame {
      * Creates new form Login
      */
     public Login() {
-        if(!verifiqueLogin())
-            initComponents();
+        initComponents();
     }
 
     /**
@@ -143,7 +142,6 @@ public class Login extends javax.swing.JFrame {
         Boolean logado = LoginController.estalogado();
         if (logado) {
             JOptionPane.showMessageDialog(null, "Seja Bem Vindo!");
-            
             new Menu().setVisible(true);
             this.dispose();
         } else {
