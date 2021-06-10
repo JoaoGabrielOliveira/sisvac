@@ -102,8 +102,9 @@ REFERENCES tb_paciente(id);
 ALTER TABLE tb_vacinado
 ADD CONSTRAINT FK_id_unidade_saude
 FOREIGN KEY (id_unidade_saude)
-REFERENCES tb_unidade_saude(id);
+REFERENCES tb_unidade_saude(id_unidade_saude);
 
 
 ALTER TABLE tb_paciente
-ALTER vacinado SET DEFAULT true
+ALTER vacinado SET DEFAULT false;
+

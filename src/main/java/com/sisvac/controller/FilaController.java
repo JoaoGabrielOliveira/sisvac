@@ -16,7 +16,7 @@ public class FilaController {
     private final Service<Paciente> service;
     
     private List<Paciente> listaPacientes;
-    //private Integer nivelPrioridade;
+    private Integer nivelPrioridade;
     private Paciente pacienteAtual;
     
     public FilaController(){
@@ -25,7 +25,8 @@ public class FilaController {
         
         this.limparTabela();
         try{
-            this.listaPacientes = this.service.where("vacinado = ?", false);
+            this.nivelPrioridade = 1;
+            this.pegarPacientes();
             this.setPacienteAtual(0);
             this.adicionarPacientesATabela();
         }
@@ -34,8 +35,43 @@ public class FilaController {
         }
     }
     
-    public void pegarPacientes() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void pegarPacientes(){
+        if(this.listaPacientes != null)
+            this.listaPacientes.clear();
+
+        switch(this.nivelPrioridade){
+            case 1 -> this.pegarPacientes70mais();
+
+            case 2 -> this.pegarPacientesSaude();
+
+            case 3 -> this.pegarDemaisPacienes();
+
+            default -> this.pegarDemaisPacienes();
+        }
+    }
+    
+    private void pegarPacientes70mais(){
+        try {
+            this.listaPacientes = this.service.where("dt_nascimento <= ? AND vacinado = ?", this.getAno(), false);
+            this.verificarPacientesPrioridade();
+        }
+        catch(Exception e){ this.exibirMensagemErro(e); }
+    }
+    
+    private void pegarPacientesSaude(){
+        try {
+            this.listaPacientes = this.service.where("dt_nascimento > ? AND e_saude = ? AND vacinado = ?", this.getAno(), true, false);
+            this.verificarPacientesPrioridade();
+        }
+        catch(Exception e){ this.exibirMensagemErro(e); }
+    }
+    
+    private void pegarDemaisPacienes(){
+        try {
+            this.listaPacientes = this.service.where("dt_nascimento > ? AND e_saude = ? AND vacinado = ?", this.getAno(),false, false);
+            this.verificarPacientesPrioridade();
+        }
+        catch(Exception e){ this.exibirMensagemErro(e); }
     }
 
     public void confirmarVacinacao() {
@@ -54,7 +90,9 @@ public class FilaController {
             this.setPacienteAtual(0);
             this.limparTabela();
             this.adicionarPacientesATabela();    
-        } 
+        }
+        else
+            this.pegarPacientes();
     }
     
     public void adicionarPacientesATabela() {
@@ -77,6 +115,28 @@ public class FilaController {
     
     public void setPacienteAtual(Integer indice){
         this.pacienteAtual = this.listaPacientes.get(indice);
+    }
+    
+    public void mudarPrioridadeSeNecessario(Integer prioridade){
+        if(prioridade > 1 && prioridade < 3)
+            this.nivelPrioridade = prioridade;
+    }
+    
+    public void exibirMensagemErro(Exception e){
+        JOptionPane.showMessageDialog(null,"Um erro aconteceu.\n" + e.getMessage());
+    }
+    
+    public java.time.LocalDate getAno(){
+            return java.time.LocalDate.now().minusYears(70);
+    }
+    
+    public Integer getNivel(){
+        return this.nivelPrioridade;
+    }
+
+    private void verificarPacientesPrioridade() {
+        if(this.listaPacientes.isEmpty())
+            JOptionPane.showMessageDialog(null, "Não há pacientes nesse nivel de prioridade\nNivel de prioridade:" + this.nivelPrioridade);
     }
 
     
