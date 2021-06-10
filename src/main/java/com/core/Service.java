@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Service<T extends BaseModel> {
-    protected String extensionQuery;
+    protected String extensionQuery = "";
     protected MainOperator operator;
     protected Class<T> instance;
     
@@ -43,7 +43,7 @@ public class Service<T extends BaseModel> {
     }
     
     public void orderBy(String colunmName){
-        this.extensionQuery = (" ORDER BY " + colunmName);
+        this.extensionQuery += (" ORDER BY " + colunmName);
     }
     
     public T find(Object param) throws SQLException, ReflectiveOperationException{
@@ -100,6 +100,23 @@ public class Service<T extends BaseModel> {
         params = Arrays.copyOf(params, params.length + 1);
         params[params.length - 1] = model.getPrimatyKeyValue();
         
+        return this.operator.execute(query, params);
+    }
+    
+        public Boolean update(T model, String whereCondition, Object... whereParams) throws SQLException, ReflectiveOperationException{
+        T objectInstance = this.getNewInstance();
+        
+        String query = "UPDATE " + objectInstance.getTableName() + " SET " + this.getBindParams(model.getColumns()) +
+                " WHERE " + whereCondition + this.extensionQuery;
+        
+        Object[] params = model.getValues();
+        int i = params.length;
+        params = Arrays.copyOf(params, whereParams.length);
+        
+        for(int j = 0; i < params.length; i++, j++){
+            params[i] = whereParams[j];
+        }
+
         return this.operator.execute(query, params);
     }
     
