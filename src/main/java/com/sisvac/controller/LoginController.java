@@ -17,6 +17,10 @@ public class LoginController {
     
     public static Funcionario funcionarioLogado;
     
+    public static boolean estalogado() {
+        return LoginController.funcionarioLogado !=null;
+    }
+    
     public static void login(String email, String senha){
         Service<Funcionario> service = new Service(Funcionario.class);
         

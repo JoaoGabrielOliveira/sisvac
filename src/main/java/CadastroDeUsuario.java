@@ -1,5 +1,6 @@
 
 import com.core.Service;
+import com.sisvac.controller.LoginController;
 import com.sisvac.model.Funcionario;
 import com.sisvac.model.Paciente;
 import java.sql.SQLException;
@@ -37,6 +38,7 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jLabelNomeUsuario = new javax.swing.JLabel();
         jTextFieldNomeUsuario = new javax.swing.JTextField();
         jLabelDataDeNascimento = new javax.swing.JLabel();
@@ -45,10 +47,11 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
         jLabelEmail = new javax.swing.JLabel();
         jTextFieldEmail = new javax.swing.JTextField();
         jLabelUnidadeDeSaude = new javax.swing.JLabel();
-        jTextFieldUnidadeDeSaude = new javax.swing.JTextField();
+        jTextFieldSenha = new javax.swing.JTextField();
         jButtonVoltar = new javax.swing.JButton();
         jButtonCadastrar = new javax.swing.JButton();
-        jComboBoxCargo = new javax.swing.JComboBox<>();
+        jRadioButtonAdm = new javax.swing.JRadioButton();
+        jRadioButtonAtendente = new javax.swing.JRadioButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -107,11 +110,11 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
             }
         });
 
-        jLabelUnidadeDeSaude.setText("Unidade De Saude");
+        jLabelUnidadeDeSaude.setText("Senha");
 
-        jTextFieldUnidadeDeSaude.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUnidadeDeSaudeActionPerformed(evt);
+                jTextFieldSenhaActionPerformed(evt);
             }
         });
 
@@ -124,12 +127,16 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
             }
         });
 
-        jComboBoxCargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<Selecione Uma Das Opções>", "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBoxCargo.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(jRadioButtonAdm);
+        jRadioButtonAdm.setText("Adm");
+        jRadioButtonAdm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxCargoActionPerformed(evt);
+                jRadioButtonAdmActionPerformed(evt);
             }
         });
+
+        buttonGroup1.add(jRadioButtonAtendente);
+        jRadioButtonAtendente.setText("Atendente");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -146,19 +153,22 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
                     .addComponent(jLabelNomeUsuario))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 223, Short.MAX_VALUE)
                         .addComponent(jButtonCadastrar)
                         .addGap(93, 93, 93))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jRadioButtonAdm)
+                                .addGap(10, 10, 10)
+                                .addComponent(jRadioButtonAtendente))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jDateDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jTextFieldNomeUsuario)
                                 .addComponent(jTextFieldEmail)
-                                .addComponent(jTextFieldUnidadeDeSaude, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE))
-                            .addComponent(jComboBoxCargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(138, Short.MAX_VALUE))))
+                                .addComponent(jTextFieldSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,10 +181,11 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabelDataDeNascimento)
                     .addComponent(jDateDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelCargo)
-                    .addComponent(jComboBoxCargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jRadioButtonAdm)
+                    .addComponent(jRadioButtonAtendente))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelEmail)
@@ -182,8 +193,8 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelUnidadeDeSaude)
-                    .addComponent(jTextFieldUnidadeDeSaude, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                    .addComponent(jTextFieldSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonVoltar)
                     .addComponent(jButtonCadastrar))
@@ -202,9 +213,9 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldEmailActionPerformed
 
-    private void jTextFieldUnidadeDeSaudeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUnidadeDeSaudeActionPerformed
+    private void jTextFieldSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSenhaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUnidadeDeSaudeActionPerformed
+    }//GEN-LAST:event_jTextFieldSenhaActionPerformed
 
     private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
       //botão de cadastro de usuario
@@ -216,7 +227,16 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
 
         funcionario.setDT_NASCIMENTO(this.jDateDataNascimento.getDate() );
         
-        //funcionario.setCargo( this.jComboBoxCargo.getSelectedIndex());
+        funcionario.setEmail( this.jTextFieldEmail.getText() );
+        
+        funcionario.setCargo( this.jRadioButtonAdm.isSelected() ? "Adm" : "Atendente");
+        
+        funcionario.setCargo( this.jRadioButtonAtendente.isSelected() ? "Adm" : "Atendente"); 
+         
+        funcionario.setSenha( this.jTextFieldSenha.getText() );
+        
+        //funcionario.setID_UNIDADE_SAUDE (LoginController.funcionarioLogado.getID_UNIDADE_SAUDE());       
+          funcionario.setID_UNIDADE_SAUDE (1);    
 
         try {
             service.create(funcionario);
@@ -226,10 +246,9 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
-    private void jComboBoxCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCargoActionPerformed
+    private void jRadioButtonAdmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonAdmActionPerformed
         // TODO add your handling code here:
-    
-    }//GEN-LAST:event_jComboBoxCargoActionPerformed
+    }//GEN-LAST:event_jRadioButtonAdmActionPerformed
 
     /**
      * @param args the command line arguments
@@ -267,9 +286,9 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButtonCadastrar;
     private javax.swing.JButton jButtonVoltar;
-    private javax.swing.JComboBox<String> jComboBoxCargo;
     private com.toedter.calendar.JDateChooser jDateDataNascimento;
     private javax.swing.JLabel jLabelCargo;
     private javax.swing.JLabel jLabelDataDeNascimento;
@@ -279,8 +298,10 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JRadioButton jRadioButtonAdm;
+    private javax.swing.JRadioButton jRadioButtonAtendente;
     private javax.swing.JTextField jTextFieldEmail;
     private javax.swing.JTextField jTextFieldNomeUsuario;
-    private javax.swing.JTextField jTextFieldUnidadeDeSaude;
+    private javax.swing.JTextField jTextFieldSenha;
     // End of variables declaration//GEN-END:variables
 }

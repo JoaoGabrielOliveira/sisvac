@@ -1,9 +1,11 @@
 package com.telas;
 
 
+import Menu;
 import com.core.Service;
 import com.sisvac.controller.LoginController;
 import com.sisvac.model.Paciente;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -42,7 +44,7 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
 
         Email.setBorder(javax.swing.BorderFactory.createTitledBorder("Email"));
         Email.addActionListener(new java.awt.event.ActionListener() {
@@ -137,6 +139,16 @@ public class Login extends javax.swing.JFrame {
         //LoginController c = new LoginController();
         
         LoginController.login(this.Email.getText(), String.valueOf(this.Senha.getPassword()));
+        
+        if (LoginController.estalogado()) {
+        JOptionPane.showMessageDialog(null, "Seja Bem Vindo!");
+          new Menu().setVisible(true);
+        this.dispose();
+    } else {
+            JOptionPane.showMessageDialog(null, "Dados Invalidos");
+        }
+        
+       
     }//GEN-LAST:event_botaoentrarActionPerformed
 
     /**
