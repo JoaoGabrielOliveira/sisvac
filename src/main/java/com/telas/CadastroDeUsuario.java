@@ -313,7 +313,7 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
         
        //funcionario.setCargo( this.jRadioButtonAdm.isSelected() ? "Adm" : "Atendente");
         
-        funcionario.setCargo( this.jRadioButtonAtendente.isSelected() ? "Adm" : "Atendente"); 
+        funcionario.setCargo( this.jRadioButtonAtendente.isSelected() ? "Atendente" : "Adm"); 
          
         funcionario.setSenha( this.jTextFieldSenha.getText() );
         
