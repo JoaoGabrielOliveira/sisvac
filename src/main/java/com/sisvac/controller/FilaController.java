@@ -2,7 +2,6 @@ package com.sisvac.controller;
 
 import com.core.Service;
 import com.sisvac.model.Paciente;
-import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -22,26 +21,36 @@ public class FilaController {
         this.service = new Service(Paciente.class);
         this.service.orderBy("dt_nascimento, e_saude DESC");
         this.nivelPrioridade = 1;
+        
+        this.modeloPadrao = new DefaultTableModel(new Object[]{ "id", "nome"}, 0);
     }
     
     public void pegarPacientes(){
         if(this.listaPacientes != null)
             this.listaPacientes.clear();
-        
+
         switch(this.nivelPrioridade){
             case 1 -> this.pegarPacientes70mais();
-            
+
             case 2 -> this.pegarPacientesSaude();
-            
+
             case 3 -> this.pegarDemaisPacienes();
-            
+
             default -> this.pegarDemaisPacienes();
         }
+        
+        this.primeiroFila();
+    }
+    
+    public void adicionarPacientesATabela(){
+        this.listaPacientes.forEach(paciente -> {
+            this.adicionarPaciente(paciente);
+        });
     }
     
     private void pegarPacientes70mais(){
         try {
-            this.listaPacientes = this.service.where("dt_nascimento <= ?", this.getAno());
+            this.listaPacientes = this.service.where("dt_nascimento <= ? AND vacinado = ?", this.getAno(), false);
             this.mudarPrioridadeSeNecessario(2);
             
         }
@@ -50,7 +59,7 @@ public class FilaController {
     
     private void pegarPacientesSaude(){
         try {
-            this.listaPacientes = this.service.where("dt_nascimento > ? AND e_saude = ?", this.getAno(), true);
+            this.listaPacientes = this.service.where("dt_nascimento > ? AND e_saude = ? AND vacinado = ?", this.getAno(), true, false);
             this.mudarPrioridadeSeNecessario(3);
         }
         catch(Exception e){ this.exibirMensagemErro(e); }
@@ -58,26 +67,39 @@ public class FilaController {
     
     private void pegarDemaisPacienes(){
         try {
-            this.listaPacientes = this.service.where("dt_nascimento > ?", 70);
+            this.listaPacientes = this.service.where("dt_nascimento > ? AND vacinado = ?", this.getAno(), false);
         }
         catch(Exception e){ this.exibirMensagemErro(e); }
     }
 
-    public void adicionarTabela(Paciente p){
+    public void adicionarPaciente(Paciente p){
         this.modeloPadrao.addRow(new Object[]{ p.getId(), p.getNome()});
+    }
+    
+    public void limparTabela(){
+        this.modeloPadrao = new DefaultTableModel(new Object[]{ "id", "nome"}, 0);
     }
     
     public void proximoFila(){
         this.listaPacientes.remove(0);
+        this.modeloPadrao.removeRow(0);
+        this.pacienteAtual = this.listaPacientes.get(0);
+    }
+    
+    public void primeiroFila(){
         this.pacienteAtual = this.listaPacientes.get(0);
     }
     
     public void confirmarVacinacao(){
         try {
+            this.pacienteAtual.setVacinado(true);
+            JOptionPane.showMessageDialog(null, this.pacienteAtual.getId() == null ? "Está nulo oh" : "Está normal oh");
             this.service.update(this.pacienteAtual);
+            this.proximoFila();
         }
         catch (Exception ex){
             this.exibirMensagemErro(ex);
+            ex.printStackTrace();
         }
     }
     
