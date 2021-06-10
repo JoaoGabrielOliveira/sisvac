@@ -22,7 +22,8 @@ public class Login extends javax.swing.JFrame {
      * Creates new form Login
      */
     public Login() {
-        initComponents();
+        if(!verifiqueLogin())
+            initComponents();
     }
 
     /**
@@ -134,27 +135,23 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_botaosairActionPerformed
 
     private void botaoentrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoentrarActionPerformed
-
-        //LoginController c = new LoginController();
-        
         LoginController.login(this.Email.getText(), String.valueOf(this.Senha.getPassword()));
-
-        
-        if (LoginController.estalogado()) {
-        JOptionPane.showMessageDialog(null, "Seja Bem Vindo!");
-          new Menu().setVisible(true);
-        this.dispose();
-    } else {
-            JOptionPane.showMessageDialog(null, "Dados Invalidos");
-        }
-        
-       
-
+        this.verifiqueLogin();
     }//GEN-LAST:event_botaoentrarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private Boolean verifiqueLogin(){
+        Boolean logado = LoginController.estalogado();
+        if (logado) {
+            JOptionPane.showMessageDialog(null, "Seja Bem Vindo!");
+            
+            new Menu().setVisible(true);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "Dados Invalidos");
+        }
+
+        return logado;
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
