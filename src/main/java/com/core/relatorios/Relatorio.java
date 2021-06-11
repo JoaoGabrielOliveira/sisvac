@@ -16,11 +16,12 @@ import java.util.List;
  * @author Joao Conceicao
  */
 public abstract class Relatorio implements IRelatorio {
-    public String query;
-    public String[] colunas;
-    
-    public HashMap<String, Object> dados;
-    public JPanel panel;
+    protected String query;
+    protected String[] colunas;
+    protected List<Object> params;
+
+    protected HashMap<String, Object> dados;
+    protected JPanel panel;
     
     public Relatorio(){
         this.dados = new HashMap<>();
@@ -32,16 +33,18 @@ public abstract class Relatorio implements IRelatorio {
     
     public abstract void getDadosFromResultSet(java.sql.ResultSet map) throws SQLException;
     
-    public void execute(){
+    public abstract void execute(Object... params) throws Exception;
+    
+    protected void executeQuery(){
         try {
             RelatorioService service = new RelatorioService();
-            this.dados = service.execute(this, this.colunas);
+            this.dados = service.execute(this, this.colunas, this.getParams().toArray() );
         }
         catch (SQLException ex) {
             javax.swing.JOptionPane.showMessageDialog(null,ex.getMessage());
         }
     }
-
+    
     @Override
     public void setQuery(String param) {
         this.query = param;
@@ -70,5 +73,19 @@ public abstract class Relatorio implements IRelatorio {
     @Override
     public JPanel getPainel() {
         return this.panel;
+    }
+    
+    @Override
+    public List<Object> getParams() {
+        return this.params;
+    }
+    
+    @Override
+    public void setParams(List<Object> params) {
+        this.params = params;
+    }
+    
+    public void addParams(Object param) {
+        this.params.add(param);
     }
 }

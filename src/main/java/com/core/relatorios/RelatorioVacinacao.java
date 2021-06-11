@@ -25,6 +25,17 @@ public class RelatorioVacinacao extends Relatorio {
     }
     
     @Override
+    public void execute(Object... params) throws Exception{
+        if(params.length != 2)
+            throw new Exception("Insira os número correto de parâmetros");
+        
+        this.addParams(params[0]);
+        this.addParams(params[1]);
+        
+        this.executeQuery();
+    }
+    
+    @Override
     public void getDadosFromResultSet(java.sql.ResultSet map)throws java.sql.SQLException{
         if(map.next()){
             for(String coluna : this.colunas)

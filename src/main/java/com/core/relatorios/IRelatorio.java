@@ -1,5 +1,6 @@
 package com.core.relatorios;
 import java.util.HashMap;
+import java.util.List;
 import javax.swing.JPanel;
 
 public interface IRelatorio {
@@ -13,5 +14,7 @@ public interface IRelatorio {
     public void setPainel(JPanel panel);
     public JPanel getPainel();
     
-    
+    public void setParams(List<Object> params);
+    public List<Object> getParams();
+    public void addParams(Object param);
 }
