@@ -6,15 +6,41 @@
 package com.core.relatorios;
 
 import javax.swing.JPanel;
+import com.core.RelatorioService;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  *
  * @author Joao Conceicao
  */
-public class Relatorio implements IRelatorio {
+public abstract class Relatorio implements IRelatorio {
     public String query;
-    public Object[] dados;
+    public String[] colunas;
+    
+    public HashMap<String, Object> dados;
     public JPanel panel;
+    
+    public Relatorio(){
+        this.dados = new HashMap<>();
+        this.construir();
+        
+    }
+    
+    public abstract void construir();
+    
+    public abstract void getDadosFromResultSet(java.sql.ResultSet map) throws SQLException;
+    
+    public void execute(){
+        try {
+            RelatorioService service = new RelatorioService();
+            this.dados = service.execute(this, this.colunas);
+        }
+        catch (SQLException ex) {
+            javax.swing.JOptionPane.showMessageDialog(null,ex.getMessage());
+        }
+    }
 
     @Override
     public void setQuery(String param) {
@@ -27,12 +53,12 @@ public class Relatorio implements IRelatorio {
     }
 
     @Override
-    public void setDados(Object[] dados) {
+    public void setDados(HashMap<String, Object> dados) {
         this.dados = dados;
     }
 
     @Override
-    public Object[] getDados() {
+    public HashMap<String, Object> getDados() {
         return this.dados;
     }
 
@@ -43,6 +69,6 @@ public class Relatorio implements IRelatorio {
 
     @Override
     public JPanel getPainel() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.panel;
     }
 }
