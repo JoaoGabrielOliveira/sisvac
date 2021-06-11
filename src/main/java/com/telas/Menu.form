@@ -92,7 +92,7 @@
                   <Component id="jButtonFila" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonRelatorio" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="26" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Component id="jButton6" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
           </Group>
@@ -155,7 +155,7 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\User\Documents\sisvac\src\main\java\img\icons\imagem-do-usuario-com-fundo-preto.png"/>
+          <Image iconType="2" name="C:\Users\elias\sisvac\src\main\java\img\icons\imagem-do-usuario-com-fundo-preto.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jLabel1"/>
       </Properties>
@@ -163,7 +163,7 @@
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\User\Documents\sisvac\src\main\java\img\icons\injecao.png"/>
+          <Image iconType="2" name="C:\Users\elias\sisvac\src\main\java\img\icons\injecao.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jLabel2"/>
       </Properties>
@@ -171,7 +171,7 @@
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\User\Documents\sisvac\src\main\java\img\icons\linha.png"/>
+          <Image iconType="2" name="C:\Users\elias\sisvac\src\main\java\img\icons\linha.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jLabel3"/>
       </Properties>
@@ -179,7 +179,7 @@
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\User\Documents\sisvac\src\main\java\img\icons\relatorio-medico.png"/>
+          <Image iconType="2" name="C:\Users\elias\sisvac\src\main\java\img\icons\relatorio-medico.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jLabel4"/>
       </Properties>

@@ -330,14 +330,14 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
         
         funcionario.setEmail( this.jTextFieldEmail.getText() );
         
-       //funcionario.setCargo( this.jRadioButtonAdm.isSelected() ? "Adm" : "Atendente");
+        funcionario.setCargo( this.jRadioButtonAdministrador.isSelected() ? "Adm" : "Atendente");
         
         funcionario.setCargo( this.jRadioButtonAtendente.isSelected() ? "Atendente" : "Adm"); 
          
         funcionario.setSenha( this.jTextFieldSenha.getText() );
         
-        //funcionario.setID_UNIDADE_SAUDE (LoginController.funcionarioLogado.getID_UNIDADE_SAUDE());       
-         // funcionario.setID_UNIDADE_SAUDE (1);    
+        funcionario.setID_UNIDADE_SAUDE (LoginController.funcionarioLogado.getID_UNIDADE_SAUDE());       
+           
 
         try {
             this.service.update(funcionario);
