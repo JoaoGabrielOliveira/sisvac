@@ -47,6 +47,7 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jDayChooser1 = new com.toedter.calendar.JDayChooser();
         buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         jLabelNomeUsuario = new javax.swing.JLabel();
         jTextFieldNomeUsuario = new javax.swing.JTextField();
         jLabelDataDeNascimento = new javax.swing.JLabel();
@@ -143,6 +144,7 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(jRadioButtonAdministrador);
         jRadioButtonAdministrador.setText("Administrador");
         jRadioButtonAdministrador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -290,12 +292,18 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
         
         //funcionario.setID_UNIDADE_SAUDE (LoginController.funcionarioLogado.getID_UNIDADE_SAUDE());       
         funcionario.setID_UNIDADE_SAUDE(1);
+        
+        
+        
+        
 
         try {
             this.service.create(funcionario);
         } catch (Exception e){
             javax.swing.JOptionPane.showMessageDialog(this,e.getMessage());
-        }        
+        }    
+        
+         JOptionPane.showMessageDialog(null, "Cadastrado com sucesso");
     }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
@@ -336,6 +344,8 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
         } catch (Exception e){
             javax.swing.JOptionPane.showMessageDialog(this,e.getMessage());
         }
+        
+         JOptionPane.showMessageDialog(null, "Atualizado com sucesso");
     }//GEN-LAST:event_jButtonAtualizarActionPerformed
 
     private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
@@ -346,6 +356,7 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
         } catch (ReflectiveOperationException ex) {
             Logger.getLogger(CadastroDeUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
+         JOptionPane.showMessageDialog(null, "Excluido com sucesso!");
     }//GEN-LAST:event_jButtonExcluirActionPerformed
 
     private void jButtonPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesquisarActionPerformed
@@ -407,6 +418,7 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton jButtonAtualizar;
     private javax.swing.JButton jButtonCadastrar;
     private javax.swing.JButton jButtonExcluir;
