@@ -10,13 +10,17 @@ package com.telas;
  *
  * @author User
  */
-public class Relatorio extends javax.swing.JFrame {
+public class RelatorioVacinacao extends javax.swing.JFrame {
 
     /**
      * Creates new form Relatorio
      */
-    public Relatorio() {
+    
+    public com.core.relatorios.RelatorioVacinacao relatorio;
+    
+    public RelatorioVacinacao() {
         initComponents();
+        this.relatorio = new com.core.relatorios.RelatorioVacinacao();
     }
 
     /**
@@ -166,7 +170,12 @@ public class Relatorio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonCalcMediaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCalcMediaActionPerformed
-        // TODO add your handling code here:
+        this.relatorio.execute();
+        
+        this.jTextFieldMaiorIgual90.setText(this.relatorio.getMaiorOuIgual90().toString());
+        this.jTextFieldEntre70e89.setText(this.relatorio.getEntre70e90().toString());
+        this.jTextFieldEntre50e69.setText(this.relatorio.getEntre50e70().toString());
+        this.jTextFieldMenor50.setText(this.relatorio.getMenorOuIgual50().toString());
     }//GEN-LAST:event_jButtonCalcMediaActionPerformed
 
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
@@ -190,20 +199,21 @@ public class Relatorio extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Relatorio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RelatorioVacinacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Relatorio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RelatorioVacinacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Relatorio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RelatorioVacinacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Relatorio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RelatorioVacinacao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Relatorio().setVisible(true);
+                new RelatorioVacinacao().setVisible(true);
             }
         });
     }
