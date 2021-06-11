@@ -97,6 +97,7 @@ public class Service<T extends BaseModel> {
     public Boolean update(T model, String whereCondition, Object... whereParams) throws SQLException, ReflectiveOperationException{
         String query = "UPDATE " + model.getTableName() + " SET " + this.getBindParams(model.getColumns(), ",") + " WHERE " + whereCondition;
         
+        
         Object[] modelParams = model.getValues();
         Object[] params = new Object[modelParams.length + whereParams.length];
         
