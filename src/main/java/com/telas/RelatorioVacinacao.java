@@ -1,5 +1,7 @@
 package com.telas;
 
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -170,7 +172,12 @@ public class RelatorioVacinacao extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonCalcMediaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCalcMediaActionPerformed
-        this.relatorio.execute();
+        try {
+            this.relatorio.limparParams();
+            this.relatorio.execute(this.jDateDtInicio.getDate(), this.jDateDtFinal.getDate());
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Mensagem de Erro", JOptionPane.ERROR_MESSAGE);
+        }
         
         this.jTextFieldMaiorIgual90.setText(this.relatorio.getMaiorOuIgual90().toString());
         this.jTextFieldEntre70e89.setText(this.relatorio.getEntre70e90().toString());
