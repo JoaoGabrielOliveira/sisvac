@@ -29,8 +29,10 @@ public class RelatorioVacinacao extends Relatorio {
         if(params.length != 2)
             throw new Exception("Insira os número correto de parâmetros");
         
-        this.addParams(params[0]);
-        this.addParams(params[1]);
+        for(int i = 0; i < 4; i++){
+            this.addParams(params[0]);
+            this.addParams(params[1]);
+        }
         
         this.executeQuery();
     }
@@ -62,8 +64,12 @@ public class RelatorioVacinacao extends Relatorio {
     private String getJoinQuery(String where, String alies){
         return "(SELECT count(v.id) FROM tb_vacinado v " +
                 "INNER JOIN tb_paciente p ON v.id_paciente = p.ID WHERE " +
-                where + " ) as " + alies;
-    }    
+                where + this.getDateBindParam() + ") as " + alies;
+    }
+    
+    private String getDateBindParam(){
+        return " AND v.data_vacinacao >= ? AND v.data_vacinacao <= ?";
+    }
     
     public Integer getMaiorOuIgual90(){
         return (Integer)this.dados.get("maiorOuIgual90");

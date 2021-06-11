@@ -25,6 +25,8 @@ public abstract class Relatorio implements IRelatorio {
     
     public Relatorio(){
         this.dados = new HashMap<>();
+        this.limparParams();
+        
         this.construir();
         
     }
@@ -85,7 +87,12 @@ public abstract class Relatorio implements IRelatorio {
         this.params = params;
     }
     
+    @Override
     public void addParams(Object param) {
         this.params.add(param);
+    }
+    
+    public void limparParams(){
+        this.params = new java.util.ArrayList();
     }
 }
