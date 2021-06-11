@@ -16,10 +16,10 @@ public class RelatorioService{
         this.operador = new MainOperator();
     }
     
-    public HashMap<String, Object> execute(Relatorio relatorio, String[] colunas ) throws SQLException {
+    public HashMap<String, Object> execute(Relatorio relatorio, String[] colunas, Object[] params ) throws SQLException {
         System.out.println(relatorio.getQuery());
         
-        ResultSet result = operador.feat(relatorio.getQuery());
+        ResultSet result = operador.feat(relatorio.getQuery(), params);
         
         relatorio.getDadosFromResultSet(result);
         
