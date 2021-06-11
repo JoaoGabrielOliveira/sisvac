@@ -67,7 +67,6 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Documents\\sisvac\\src\\main\\java\\img\\icons\\logosisvac.png")); // NOI18N
         jLabel2.setText("jLabel2");
 
         Senha.setBorder(javax.swing.BorderFactory.createTitledBorder("Senha"));
@@ -122,6 +121,7 @@ public class Login extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void EmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmailActionPerformed
@@ -142,7 +142,12 @@ public class Login extends javax.swing.JFrame {
         Boolean logado = LoginController.estalogado();
         if (logado) {
             JOptionPane.showMessageDialog(null, "Seja Bem Vindo!");
-            new Menu().setVisible(true);
+            
+            switch(LoginController.funcionarioLogado.getCargo().toLowerCase()){
+                case "adm" -> new Menu().setVisible(true);
+                default -> new Fila().setVisible(true);
+            }
+            
             this.dispose();
         } else {
             JOptionPane.showMessageDialog(null, "Dados Invalidos");

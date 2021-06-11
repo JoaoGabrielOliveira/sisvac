@@ -54,7 +54,7 @@ public class Fila extends javax.swing.JFrame {
         labelPacienteId = new javax.swing.JLabel();
         jCheckBoxAreaSaude = new javax.swing.JCheckBox();
         labelTitulo1 = new javax.swing.JLabel();
-        jButtonVoltar = new javax.swing.JButton();
+        jButtonSair = new javax.swing.JButton();
         panelTabela = new javax.swing.JPanel();
         labelTitulo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -146,10 +146,10 @@ public class Fila extends javax.swing.JFrame {
         labelTitulo1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         labelTitulo1.setText("Paciente a ser vacinado");
 
-        jButtonVoltar.setText("Voltar");
-        jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSair.setText("Sair");
+        jButtonSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonVoltarActionPerformed(evt);
+                jButtonSairActionPerformed(evt);
             }
         });
 
@@ -161,7 +161,7 @@ public class Fila extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panelMensagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelMensagemLayout.createSequentialGroup()
-                        .addComponent(jButtonVoltar)
+                        .addComponent(jButtonSair)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonVacinar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -183,7 +183,7 @@ public class Fila extends javax.swing.JFrame {
                 .addGroup(panelMensagemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonVacinar)
                     .addComponent(jButtonAusentar)
-                    .addComponent(jButtonVoltar))
+                    .addComponent(jButtonSair))
                 .addContainerGap())
         );
 
@@ -322,18 +322,19 @@ public class Fila extends javax.swing.JFrame {
     private void jComboBoxPrioridadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxPrioridadeActionPerformed
         int prioriodade = this.jComboBoxPrioridade.getSelectedIndex() + 1;
         this.filaController.mudarPrioridadeSeNecessario(prioriodade);
+        JOptionPane.showMessageDialog(null,"Mudando a prioridade da fila para " + this.filaController.getNivel(), "SisVac - Prioridade", JOptionPane.INFORMATION_MESSAGE);
         this.filaController.pegarPacientes();
+        this.atualizarTabela();
     }//GEN-LAST:event_jComboBoxPrioridadeActionPerformed
 
     private void jComboBoxPrioridadeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jComboBoxPrioridadeFocusLost
-        JOptionPane.showMessageDialog(null, "Mudando a prioridade da fila", "SisVac - Prioridade",JOptionPane.INFORMATION_MESSAGE);
-        this.atualizarTabela();
+        
+        
     }//GEN-LAST:event_jComboBoxPrioridadeFocusLost
 
-    private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
-        new Menu().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButtonVoltarActionPerformed
+    private void jButtonSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSairActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jButtonSairActionPerformed
     
     private void atualizarTabela(){
         this.filaController.limparTabela();
@@ -386,8 +387,8 @@ public class Fila extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAtualizar;
     private javax.swing.JButton jButtonAusentar;
+    private javax.swing.JButton jButtonSair;
     private javax.swing.JButton jButtonVacinar;
-    private javax.swing.JButton jButtonVoltar;
     private javax.swing.JCheckBox jCheckBoxAreaSaude;
     private javax.swing.JComboBox<String> jComboBoxPrioridade;
     private javax.swing.JScrollPane jScrollPane1;

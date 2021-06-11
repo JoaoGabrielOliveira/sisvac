@@ -51,7 +51,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jButtonVoltar" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonSair" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="jButtonVacinar" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -78,7 +78,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jButtonVacinar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonAusentar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonVoltar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonSair" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -218,12 +218,12 @@
             <Property name="text" type="java.lang.String" value="Paciente a ser vacinado"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButtonVoltar">
+        <Component class="javax.swing.JButton" name="jButtonSair">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Voltar"/>
+            <Property name="text" type="java.lang.String" value="Sair"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonVoltarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSairActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
