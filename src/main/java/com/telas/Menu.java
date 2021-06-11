@@ -76,16 +76,16 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Documents\\sisvac\\src\\main\\java\\img\\icons\\imagem-do-usuario-com-fundo-preto.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\elias\\sisvac\\src\\main\\java\\img\\icons\\imagem-do-usuario-com-fundo-preto.png")); // NOI18N
         jLabel1.setText("jLabel1");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Documents\\sisvac\\src\\main\\java\\img\\icons\\injecao.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\elias\\sisvac\\src\\main\\java\\img\\icons\\injecao.png")); // NOI18N
         jLabel2.setText("jLabel2");
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Documents\\sisvac\\src\\main\\java\\img\\icons\\linha.png")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\elias\\sisvac\\src\\main\\java\\img\\icons\\linha.png")); // NOI18N
         jLabel3.setText("jLabel3");
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Documents\\sisvac\\src\\main\\java\\img\\icons\\relatorio-medico.png")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\elias\\sisvac\\src\\main\\java\\img\\icons\\relatorio-medico.png")); // NOI18N
         jLabel4.setText("jLabel4");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -159,7 +159,7 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(jButtonCadastroDePacientes)
                     .addComponent(jButtonFila)
                     .addComponent(jButtonRelatorio))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton6)
                 .addGap(21, 21, 21))
         );

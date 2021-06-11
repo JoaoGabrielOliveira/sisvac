@@ -143,6 +143,7 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(jRadioButtonAdministrador);
         jRadioButtonAdministrador.setText("Administrador");
         jRadioButtonAdministrador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
