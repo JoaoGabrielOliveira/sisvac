@@ -1,5 +1,7 @@
 package com.telas;
 
+import com.core.relatorios.Relatorio;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -65,6 +67,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+<<<<<<< HEAD
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\elias\\sisvac\\src\\main\\java\\img\\icons\\imagem-do-usuario-com-fundo-preto.png")); // NOI18N
         jLabel1.setText("jLabel1");
 
@@ -72,6 +75,15 @@ public class Menu extends javax.swing.JFrame {
         jLabel2.setText("jLabel2");
 
         jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\elias\\sisvac\\src\\main\\java\\img\\icons\\relatorio-medico.png")); // NOI18N
+=======
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Documents\\sisvac\\src\\main\\java\\img\\icons\\imagem-do-usuario-com-fundo-preto.png")); // NOI18N
+        jLabel1.setText("jLabel1");
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Documents\\sisvac\\src\\main\\java\\img\\icons\\injecao.png")); // NOI18N
+        jLabel2.setText("jLabel2");
+
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\User\\Documents\\sisvac\\src\\main\\java\\img\\icons\\relatorio-medico.png")); // NOI18N
+>>>>>>> 1f48b8e738e1ae2ceb3fd1d1efb39338e4c3f913
         jLabel4.setText("jLabel4");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
