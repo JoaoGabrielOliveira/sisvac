@@ -40,7 +40,7 @@ public class Menu extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("SisVac");
+        setTitle("SisVac - Menu");
         setBackground(new java.awt.Color(204, 255, 204));
 
         jButtonCadastroDeUsuario.setText("Cadastro de Usuarios");

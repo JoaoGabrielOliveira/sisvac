@@ -44,6 +44,7 @@ public class Login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel1.setToolTipText("SisVac - Login");
 
         Email.setBorder(javax.swing.BorderFactory.createTitledBorder("Email"));
         Email.addActionListener(new java.awt.event.ActionListener() {

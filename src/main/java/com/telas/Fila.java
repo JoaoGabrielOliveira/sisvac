@@ -64,7 +64,7 @@ public class Fila extends javax.swing.JFrame {
         jComboBoxPrioridade = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Fila de Vacinação");
+        setTitle("SisVac - Fila de Vacinação");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jButtonVacinar.setText("Confirmar Vacinação");

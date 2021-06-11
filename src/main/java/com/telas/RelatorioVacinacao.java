@@ -51,6 +51,7 @@ public class RelatorioVacinacao extends javax.swing.JFrame {
         jDateDtFinal = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("SisVac - Relatorio");
 
         jLabelDtInicio.setText("Data de inicio");
 
