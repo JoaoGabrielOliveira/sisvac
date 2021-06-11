@@ -38,7 +38,7 @@ public class Menu extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("SisVac");
+        setTitle("SisVac - Menu");
         setBackground(new java.awt.Color(204, 255, 204));
 
         jButtonCadastroDeUsuario.setText("Cadastro de Usuarios");
@@ -155,7 +155,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCadastroDePacientesActionPerformed
 
     private void jButtonRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRelatorioActionPerformed
-    new Relatorio().setVisible(true);
+    new RelatorioVacinacao().setVisible(true);
     }//GEN-LAST:event_jButtonRelatorioActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed

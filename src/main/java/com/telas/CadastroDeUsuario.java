@@ -99,7 +99,7 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Cadastro De Usuario");
+        setTitle("SisVac - Cadastro De Usuario");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabelNomeUsuario.setText("Nome");
