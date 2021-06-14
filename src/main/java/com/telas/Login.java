@@ -69,7 +69,8 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Joao Conceicao\\Documents\\ProjetosParalelos\\SisVac\\src\\main\\java\\img\\icons\\Logo.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\elias\\sisvac\\src\\main\\java\\img\\icons\\logosisvac.png")); // NOI18N
+        jLabel2.setText("jLabel2");
 
         Senha.setBorder(javax.swing.BorderFactory.createTitledBorder("Senha"));
 

@@ -122,8 +122,9 @@
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Joao Conceicao\Documents\ProjetosParalelos\SisVac\src\main\java\img\icons\Logo.png"/>
+              <Image iconType="2" name="C:\Users\elias\sisvac\src\main\java\img\icons\logosisvac.png"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="jLabel2"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JPasswordField" name="Senha">
