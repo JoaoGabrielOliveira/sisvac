@@ -325,6 +325,7 @@ public class Fila extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null,"Mudando a prioridade da fila para " + this.filaController.getNivel(), "SisVac - Prioridade", JOptionPane.INFORMATION_MESSAGE);
         this.filaController.pegarPacientes();
         this.atualizarTabela();
+        
     }//GEN-LAST:event_jComboBoxPrioridadeActionPerformed
 
     private void jComboBoxPrioridadeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jComboBoxPrioridadeFocusLost
@@ -340,13 +341,14 @@ public class Fila extends javax.swing.JFrame {
         this.filaController.limparTabela();
         this.filaController.adicionarPacientesATabela();
         this.jTable1.setModel(this.filaController.modeloPadrao);
+        this.filaController.pegarPrimeiroFila();
         this.atualizarPaciente(this.filaController.getPacienteAtual());
     }
     
     private void atualizarPaciente(Paciente paciente){
         this.jTextPacienteId.setText(paciente.getId().toString());
         this.jTextPacienteNome.setText(paciente.getNome());
-        this.jTextPacienteIdade.setText(paciente.getDT_NASCIMENTO().toString());
+        this.jTextPacienteIdade.setText(paciente.calcularIdade().toString());
         this.jCheckBoxAreaSaude.setSelected(paciente.getE_SAUDE());
     }
     

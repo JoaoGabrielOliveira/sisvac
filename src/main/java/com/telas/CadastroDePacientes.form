@@ -28,74 +28,75 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabelNome" pref="59" max="32767" attributes="0"/>
-                  <Component id="jLabelEnderecoPaciente" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jTextFieldEnderecoPaciente" min="-2" pref="362" max="-2" attributes="0"/>
-                  <Component id="jTextFieldNomePaciente" min="-2" pref="362" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
-          </Group>
           <Group type="102" attributes="0">
+              <EmptySpace min="22" pref="22" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                      <Component id="jLabelDataNascimento" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                      <Component id="jDateDataNascimento" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jLabelNome" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="jLabelAreaSaude" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabelDataNascimento" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="jLabelNome2" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabelCEP" min="-2" pref="107" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jDateDataNascimento" alignment="0" min="-2" pref="166" max="-2" attributes="0"/>
+                          <Component id="jTextFieldNumero" alignment="0" min="-2" pref="239" max="-2" attributes="0"/>
+                          <Component id="jCheckBox_ESaude" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldNomePaciente" alignment="0" min="-2" pref="239" max="-2" attributes="0"/>
+                          <Component id="jTextFieldCEP" alignment="0" min="-2" pref="239" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
-                      <Component id="jLabelAreaSaude" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jCheckBox_ESaude" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="jButtonVoltar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jButtonCadastrar" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="154" max="-2" attributes="0"/>
-              <Component id="jButtonVoltar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="jButtonCadastrar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jLabelNome" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldNomePaciente" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="22" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabelNome" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextFieldNomePaciente" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabelCEP" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextFieldCEP" alignment="1" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextFieldEnderecoPaciente" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelEnderecoPaciente" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelNome2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextFieldNumero" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                      <Component id="jLabelAreaSaude" min="-2" pref="14" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                      <Component id="jCheckBox_ESaude" min="-2" pref="41" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="jCheckBox_ESaude" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelAreaSaude" alignment="1" min="-2" pref="14" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jDateDataNascimento" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelDataNascimento" min="-2" max="-2" attributes="0"/>
+                  <Component id="jDateDataNascimento" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelDataNascimento" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="83" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButtonVoltar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonCadastrar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -108,22 +109,12 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabelNome">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Nome"/>
+        <Property name="text" type="java.lang.String" value="Nome:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldNomePaciente">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldNomePacienteActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabelEnderecoPaciente">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Endere&#xe7;o"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldEnderecoPaciente">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldEnderecoPacienteActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelAreaSaude">
@@ -157,6 +148,26 @@
     <Component class="javax.swing.JCheckBox" name="jCheckBox_ESaude">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox_ESaudeActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldCEP">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldCEPActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelCEP">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="CEP:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelNome2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="N&#xfa;mero:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldNumero">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldNumeroActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

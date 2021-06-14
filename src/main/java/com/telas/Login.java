@@ -68,7 +68,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("jLabel2");
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Joao Conceicao\\Documents\\ProjetosParalelos\\SisVac\\src\\main\\java\\img\\icons\\Logo.png")); // NOI18N
 
         Senha.setBorder(javax.swing.BorderFactory.createTitledBorder("Senha"));
 
@@ -85,13 +85,13 @@ public class Login extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(212, 212, 212)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(171, 171, 171)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Senha, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(240, 240, 240)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(183, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -142,7 +142,7 @@ public class Login extends javax.swing.JFrame {
     private Boolean verifiqueLogin(){
         Boolean logado = LoginController.estalogado();
         if (logado) {
-            JOptionPane.showMessageDialog(null, "Seja Bem Vindo!");
+            JOptionPane.showMessageDialog(null, "Seja Bem Vindo!", "Bem vindo", JOptionPane.INFORMATION_MESSAGE);
             
             switch(LoginController.funcionarioLogado.getCargo().toLowerCase()){
                 case "adm" -> new Menu().setVisible(true);

@@ -2,9 +2,11 @@ package com.telas;
 
 import com.core.Service;
 import com.sisvac.model.Paciente;
+import com.sisvac.model.Endereco;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class CadastroDePacientes extends javax.swing.JFrame {
 
@@ -27,31 +29,25 @@ public class CadastroDePacientes extends javax.swing.JFrame {
         buttonGroupRadioButton = new javax.swing.ButtonGroup();
         jLabelNome = new javax.swing.JLabel();
         jTextFieldNomePaciente = new javax.swing.JTextField();
-        jLabelEnderecoPaciente = new javax.swing.JLabel();
-        jTextFieldEnderecoPaciente = new javax.swing.JTextField();
         jLabelAreaSaude = new javax.swing.JLabel();
         jLabelDataNascimento = new javax.swing.JLabel();
         jDateDataNascimento = new com.toedter.calendar.JDateChooser();
         jButtonVoltar = new javax.swing.JButton();
         jButtonCadastrar = new javax.swing.JButton();
         jCheckBox_ESaude = new javax.swing.JCheckBox();
+        jTextFieldCEP = new javax.swing.JTextField();
+        jLabelCEP = new javax.swing.JLabel();
+        jLabelNome2 = new javax.swing.JLabel();
+        jTextFieldNumero = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("SisVac - Cadastro De Pacientes");
 
-        jLabelNome.setText("Nome");
+        jLabelNome.setText("Nome:");
 
         jTextFieldNomePaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldNomePacienteActionPerformed(evt);
-            }
-        });
-
-        jLabelEnderecoPaciente.setText("Endereço");
-
-        jTextFieldEnderecoPaciente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldEnderecoPacienteActionPerformed(evt);
             }
         });
 
@@ -79,63 +75,79 @@ public class CadastroDePacientes extends javax.swing.JFrame {
             }
         });
 
+        jTextFieldCEP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldCEPActionPerformed(evt);
+            }
+        });
+
+        jLabelCEP.setText("CEP:");
+
+        jLabelNome2.setText("Número:");
+
+        jTextFieldNumero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldNumeroActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(78, 78, 78)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelNome, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
-                    .addComponent(jLabelEnderecoPaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldEnderecoPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldNomePaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(104, 104, 104))
-            .addGroup(layout.createSequentialGroup()
+                .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(jLabelDataNascimento)
-                        .addGap(47, 47, 47)
-                        .addComponent(jDateDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabelNome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabelAreaSaude, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(jLabelDataNascimento)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(jLabelNome2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabelCEP, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(57, 57, 57)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jDateDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCheckBox_ESaude)
+                            .addComponent(jTextFieldNomePaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldCEP, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(66, 66, 66)
-                        .addComponent(jLabelAreaSaude)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox_ESaude)))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(154, 154, 154)
-                .addComponent(jButtonVoltar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonCadastrar)
-                .addGap(89, 89, 89))
+                        .addComponent(jButtonVoltar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonCadastrar)))
+                .addGap(42, 42, 42))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabelNome)
-                    .addComponent(jTextFieldNomePaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                .addContainerGap(22, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelNome, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jTextFieldNomePaciente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelCEP, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jTextFieldCEP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldEnderecoPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelEnderecoPaciente))
+                    .addComponent(jLabelNome2)
+                    .addComponent(jTextFieldNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(jLabelAreaSaude, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jCheckBox_ESaude, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(28, 28, 28)
+                    .addComponent(jCheckBox_ESaude, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelAreaSaude, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jDateDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelDataNascimento))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                    .addComponent(jDateDataNascimento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelDataNascimento, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonVoltar)
                     .addComponent(jButtonCadastrar))
@@ -150,10 +162,6 @@ public class CadastroDePacientes extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNomePacienteActionPerformed
 
-    private void jTextFieldEnderecoPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEnderecoPacienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldEnderecoPacienteActionPerformed
-
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
       
         this.dispose();
@@ -161,17 +169,30 @@ public class CadastroDePacientes extends javax.swing.JFrame {
 
     private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
         //Botão de Cadastro
-        Service<Paciente> service = new Service(Paciente.class);
+        Service<Paciente> servicePaciente = new Service(Paciente.class);
+        Service<Endereco> serviceEndereco = new Service(Endereco.class);
+        
         Paciente paciente = new Paciente();
+        Endereco endereco = new Endereco();
+        
+        endereco.setNumero(this.jTextFieldNumero.getText());
+        endereco.setCEP(this.jTextFieldNumero.getText());
         
         paciente.setNome( this.jTextFieldNomePaciente.getText() );
         paciente.setDT_NASCIMENTO(this.jDateDataNascimento.getDate() );
         paciente.setE_SAUDE( this.jCheckBox_ESaude.isSelected() );
 
         try {
-            service.create(paciente);
+            this.validarCampos();
+            
+            servicePaciente.create(paciente);
+            serviceEndereco.create(endereco);
+            
+            JOptionPane.showMessageDialog(null, "Cadastro relizado com sucesso!", "Cadastro", JOptionPane.INFORMATION_MESSAGE);
+            this.limparTextFields();
+            
         } catch (Exception e){
-            javax.swing.JOptionPane.showMessageDialog(this,e.getMessage());
+            JOptionPane.showMessageDialog(this,e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
         }
         
         
@@ -181,6 +202,41 @@ public class CadastroDePacientes extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox_ESaudeActionPerformed
 
+    private void jTextFieldCEPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCEPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldCEPActionPerformed
+
+    private void jTextFieldNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNumeroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldNumeroActionPerformed
+
+    private void limparTextFields(){
+        this.jTextFieldNomePaciente.setText("");
+        this.jCheckBox_ESaude.setSelected(false);
+        this.jDateDataNascimento.setDate(null);
+        
+        this.jTextFieldCEP.setText("");
+        this.jTextFieldNumero.setText("");
+    }
+    
+    private void validarCampos() throws Exception{
+        String error = "";
+        if(this.jTextFieldNomePaciente.getText().isEmpty())
+            error += "Campo paciente está vazio!\n";
+        
+        if(this.jDateDataNascimento.getDate() == null);
+            error += "Campo Data de Nascimento está vazio!\n";
+        
+        if(this.jTextFieldCEP.getText().isEmpty())
+            error += "Campo CEP está vazio!\n";
+        
+        if(this.jTextFieldNumero.getText().isEmpty())
+            error += "Campo número está vazio!\n";
+        
+        if(!error.isEmpty())
+            throw new Exception(error);
+
+    }
     
     /**
      * @param args the command line arguments
@@ -224,10 +280,12 @@ public class CadastroDePacientes extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox_ESaude;
     private com.toedter.calendar.JDateChooser jDateDataNascimento;
     private javax.swing.JLabel jLabelAreaSaude;
+    private javax.swing.JLabel jLabelCEP;
     private javax.swing.JLabel jLabelDataNascimento;
-    private javax.swing.JLabel jLabelEnderecoPaciente;
     private javax.swing.JLabel jLabelNome;
-    private javax.swing.JTextField jTextFieldEnderecoPaciente;
+    private javax.swing.JLabel jLabelNome2;
+    private javax.swing.JTextField jTextFieldCEP;
     private javax.swing.JTextField jTextFieldNomePaciente;
+    private javax.swing.JTextField jTextFieldNumero;
     // End of variables declaration//GEN-END:variables
 }
