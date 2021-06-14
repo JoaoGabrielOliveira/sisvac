@@ -1,4 +1,4 @@
-package com.sisvac.model;
+    package com.sisvac.model;
 
 import com.core.model.BaseModel;
 import java.time.Instant;
@@ -65,8 +65,9 @@ public class Paciente extends BaseModel {
         this.vacinado = param;
     }
     
-    public Integer getIdade(){
-        return java.time.LocalDate.now().minusYears(this.DT_NASCIMENTO.getTime()).getYear();
+    public Integer calcularIdade(){
+        java.time.LocalDate date = this.DT_NASCIMENTO.toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
+        return java.time.LocalDate.now().getYear() - date.getYear();
     }
 
     

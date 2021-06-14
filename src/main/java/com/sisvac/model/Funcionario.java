@@ -1,4 +1,4 @@
-package com.sisvac.model;
+    package com.sisvac.model;
 
 import com.core.model.BaseModel;
 import java.util.Date;
@@ -26,7 +26,7 @@ public class Funcionario extends BaseModel
     }
     
     public Funcionario() {
-    this.setTableName("tb_funcionario");
+        this.setTableName("tb_funcionario");
 
     }
     

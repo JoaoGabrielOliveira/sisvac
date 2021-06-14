@@ -5,32 +5,48 @@ import com.core.model.BaseModel;
 public class Endereco extends BaseModel
 {
     private Integer id;
-    private String rua;
+    //private String rua;
     private String numero;
-    private String bairro;
-    private String complemento;
-    private String cidade;
-    private String uf;
-    private String pais;
-
+    //private String bairro;
+    //private String complemento;
+    //private String cidade;
+    //private String uf;
+    //private String pais;
+    private String CEP;
+    
+    public Endereco(){
+        this.setTableName("tb_endereco");
+    }
+    
     public Integer getId(){
         return this.id;
     }
     public void setId(Integer param){
         this.id = param;
     }
-    public String getRua(){
-        return this.rua;
-    }
-    public void setRua(String param){
-        this.rua = param;
-    }
+    
     public String getNumero(){
         return this.numero;
     }
     public void setNumero(String param){
         this.numero = param;
     }
+    
+    public String getCEP(){
+        return this.CEP;
+    }
+    
+    public void setCEP(String param){
+        this.CEP = param;
+    }
+/*
+    public String getRua(){
+        return this.rua;
+    }
+    public void setRua(String param){
+        this.rua = param;
+    }
+    
     public String getBairro(){
         return this.bairro;
     }
@@ -61,4 +77,5 @@ public class Endereco extends BaseModel
     public void setPais(String param){
         this.pais = param;
     }
+*/
 }
