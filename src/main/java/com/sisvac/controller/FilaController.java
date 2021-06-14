@@ -51,6 +51,9 @@ public class FilaController {
 
             default -> this.pegarDemaisPacienes();
         }
+        
+        if(this.listaPacientes.isEmpty())
+            JOptionPane.showMessageDialog(null, "Fila está vazia");
     }
     
     private void pegarPacientes70mais(){
@@ -94,6 +97,11 @@ public class FilaController {
             e.printStackTrace();
         }
     }
+    
+    public void pegarPrimeiroFila(){
+        if(!this.listaPacientes.isEmpty())
+            this.setPacienteAtual(0);
+    }
 
     public void proximoFila() {
         if(!this.listaPacientes.isEmpty()){
@@ -125,12 +133,20 @@ public class FilaController {
     }
     
     public void setPacienteAtual(Integer indice){
-        this.pacienteAtual = this.listaPacientes.get(indice);
+        try{
+            this.pacienteAtual = this.listaPacientes.get(indice);
+        }
+        catch(java.lang.IndexOutOfBoundsException ex){
+            JOptionPane.showMessageDialog(null, "Saiu do limite\n" + ex.getMessage());
+        }
     }
     
     public void mudarPrioridadeSeNecessario(Integer prioridade){
-        if(prioridade > 1 && prioridade < 3)
+        if(prioridade >= 1 && prioridade <= 3){
             this.nivelPrioridade = prioridade;
+            this.pacienteAtual = new Paciente();
+        }
+        
     }
     
     public void exibirMensagemErro(Exception e){
