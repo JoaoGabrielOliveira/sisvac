@@ -10,6 +10,8 @@ public class RelatorioVacinacao extends Relatorio {
     @Override
     public void construir(){
         
+        this.titulo = "Relatório de Vacinação";
+        
         this.colunas = new String[]{
             "maiorOuIgual90",
             "entre70e90","entre50e70",
@@ -21,6 +23,10 @@ public class RelatorioVacinacao extends Relatorio {
                 + this.entre70e90() + ","
                 + this.entre50e70() + ","
                 + this.menorOuIgual50()
+        );
+        
+        this.setPainel(
+                new com.core.relatorios.panels.PanelRelatorioVacinacao(this)
         );
     }
     

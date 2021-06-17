@@ -19,6 +19,7 @@ public abstract class Relatorio implements IRelatorio {
     protected String query;
     protected String[] colunas;
     protected List<Object> params;
+    protected String titulo;
 
     protected HashMap<String, Object> dados;
     protected JPanel panel;
@@ -94,5 +95,13 @@ public abstract class Relatorio implements IRelatorio {
     
     public void limparParams(){
         this.params = new java.util.ArrayList();
+    }
+    
+    public void setTitulo(String titulo){
+        this.titulo =  titulo;
+    }
+    
+    public String getTitulo(){
+        return this.titulo;
     }
 }
