@@ -1,6 +1,6 @@
 package com.telas;
 
-import com.core.relatorios.Relatorio;
+import com.telas.Relatorio;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -225,7 +225,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCadastroDePacientesActionPerformed
 
     private void jButtonRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRelatorioActionPerformed
-        new RelatorioVacinacao().setVisible(true);
+        new Relatorio().setVisible(true);
     }//GEN-LAST:event_jButtonRelatorioActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
