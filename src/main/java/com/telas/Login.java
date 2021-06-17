@@ -43,6 +43,10 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SisVac - Login");
+        setLocation(new java.awt.Point(0, 0));
+        setResizable(false);
+        setSize(new java.awt.Dimension(0, 0));
+        getContentPane().setLayout(new java.awt.GridLayout());
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 204));
         jPanel1.setToolTipText("");
@@ -54,23 +58,27 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        botaoentrar.setBackground(new java.awt.Color(233, 233, 233));
         botaoentrar.setText("Entrar");
+        botaoentrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         botaoentrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoentrarActionPerformed(evt);
             }
         });
 
+        botaosair.setBackground(new java.awt.Color(233, 233, 233));
         botaosair.setText("Sair");
         botaosair.setActionCommand("sair");
+        botaosair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         botaosair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaosairActionPerformed(evt);
             }
         });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\elias\\sisvac\\src\\main\\java\\img\\icons\\logosisvac.png")); // NOI18N
-        jLabel2.setText("jLabel2");
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Joao Conceicao\\Documents\\ProjetosParalelos\\SisVac\\src\\main\\java\\img\\icons\\logosisvac.png")); // NOI18N
 
         Senha.setBorder(javax.swing.BorderFactory.createTitledBorder("Senha"));
 
@@ -78,68 +86,60 @@ public class Login extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(botaosair)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(botaoentrar)
-                .addGap(82, 82, 82))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(171, 171, 171)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Senha, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(240, 240, 240)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(183, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(botaosair, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Senha, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botaoentrar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(119, 119, 119))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addContainerGap()
                 .addComponent(jLabel2)
+                .addGap(26, 26, 26)
+                .addComponent(Email)
                 .addGap(18, 18, 18)
-                .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Senha)
                 .addGap(39, 39, 39)
-                .addComponent(Senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botaosair)
-                    .addComponent(botaoentrar))
-                .addGap(46, 46, 46))
+                    .addComponent(botaoentrar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botaosair, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(jPanel1);
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void botaoentrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoentrarActionPerformed
+        String senha = String.valueOf(this.Senha.getPassword());
+        if(this.Email.getText().isEmpty() || senha.isEmpty()){
+            
+        }
+        else{
+            this.setCursor( new java.awt.Cursor(java.awt.Cursor.WAIT_CURSOR));
+            LoginController.login(this.Email.getText(), String.valueOf(this.Senha.getPassword()));
+            this.setCursor( new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+            this.verifiqueLogin();
+        }
+    }//GEN-LAST:event_botaoentrarActionPerformed
+
+    private void botaosairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaosairActionPerformed
+        System.exit(0);
+
+    }//GEN-LAST:event_botaosairActionPerformed
+
     private void EmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_EmailActionPerformed
-
-    private void botaosairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaosairActionPerformed
-       System.exit(0);
-        
-    }//GEN-LAST:event_botaosairActionPerformed
-
-    private void botaoentrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoentrarActionPerformed
-        LoginController.login(this.Email.getText(), String.valueOf(this.Senha.getPassword()));
-        this.verifiqueLogin();
-    }//GEN-LAST:event_botaoentrarActionPerformed
 
     private Boolean verifiqueLogin(){
         Boolean logado = LoginController.estalogado();
@@ -152,9 +152,8 @@ public class Login extends javax.swing.JFrame {
             }
             
             this.dispose();
-        } else {
-            JOptionPane.showMessageDialog(null, "Dados Invalidos");
-        }
+        } else
+            JOptionPane.showMessageDialog(null, "Usuario não encontrados.\nVerifique se digitou corretamente.", "SisVac - Informativo", JOptionPane.INFORMATION_MESSAGE);
 
         return logado;
     }
