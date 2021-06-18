@@ -46,11 +46,12 @@ public class Login extends javax.swing.JFrame {
         setLocation(new java.awt.Point(0, 0));
         setResizable(false);
         setSize(new java.awt.Dimension(0, 0));
-        getContentPane().setLayout(new java.awt.GridLayout());
+        getContentPane().setLayout(new java.awt.GridLayout(1, 0));
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 204));
         jPanel1.setToolTipText("");
 
+        Email.setToolTipText("Digite seu email");
         Email.setBorder(javax.swing.BorderFactory.createTitledBorder("Email"));
         Email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,7 +59,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        botaoentrar.setBackground(new java.awt.Color(233, 233, 233));
+        botaoentrar.setBackground(Tema.corBotao);
         botaoentrar.setText("Entrar");
         botaoentrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         botaoentrar.addActionListener(new java.awt.event.ActionListener() {
@@ -67,7 +68,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        botaosair.setBackground(new java.awt.Color(233, 233, 233));
+        botaosair.setBackground(Tema.corBotao);
         botaosair.setText("Sair");
         botaosair.setActionCommand("sair");
         botaosair.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -79,7 +80,9 @@ public class Login extends javax.swing.JFrame {
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Joao Conceicao\\Documents\\ProjetosParalelos\\SisVac\\src\\main\\java\\img\\icons\\logosisvac.png")); // NOI18N
+        jLabel2.setToolTipText("");
 
+        Senha.setToolTipText("Digite sua senha:");
         Senha.setBorder(javax.swing.BorderFactory.createTitledBorder("Senha"));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -121,12 +124,13 @@ public class Login extends javax.swing.JFrame {
 
     private void botaoentrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoentrarActionPerformed
         String senha = String.valueOf(this.Senha.getPassword());
+        
         if(this.Email.getText().isEmpty() || senha.isEmpty()){
-            
+            JOptionPane.showMessageDialog(null, "Para continuar, é necessario preencher email e senha.", "SisVac - Login", JOptionPane.WARNING_MESSAGE);
         }
         else{
             this.setCursor( new java.awt.Cursor(java.awt.Cursor.WAIT_CURSOR));
-            LoginController.login(this.Email.getText(), String.valueOf(this.Senha.getPassword()));
+            LoginController.login(this.Email.getText(), senha);
             this.setCursor( new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
             this.verifiqueLogin();
         }

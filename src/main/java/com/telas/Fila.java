@@ -67,6 +67,7 @@ public class Fila extends javax.swing.JFrame {
         setTitle("SisVac - Fila de Vacinação");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        jButtonVacinar.setBackground(Tema.corBotao);
         jButtonVacinar.setText("Confirmar Vacinação");
         jButtonVacinar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,6 +75,7 @@ public class Fila extends javax.swing.JFrame {
             }
         });
 
+        jButtonAusentar.setBackground(Tema.corBotao);
         jButtonAusentar.setText("Paciente Ausente");
         jButtonAusentar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,6 +148,7 @@ public class Fila extends javax.swing.JFrame {
         labelTitulo1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         labelTitulo1.setText("Paciente a ser vacinado");
 
+        jButtonSair.setBackground(Tema.corBotao);
         jButtonSair.setText("Sair");
         jButtonSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -223,6 +226,7 @@ public class Fila extends javax.swing.JFrame {
             jTable1.getColumnModel().getColumn(0).setResizable(false);
         }
 
+        jButtonAtualizar.setBackground(Tema.corBotao);
         jButtonAtualizar.setText("Atualizar fila");
         jButtonAtualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

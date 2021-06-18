@@ -104,14 +104,16 @@ public class FilaController {
     }
 
     public void proximoFila() {
-        if(!this.listaPacientes.isEmpty()){
+        if(!this.listaPacientes.isEmpty() || this.listaPacientes.size() > 1 ){
             this.listaPacientes.remove(0);
             this.setPacienteAtual(0);
             this.limparTabela();
             this.adicionarPacientesATabela();    
         }
-        else
+        else{
             this.pegarPacientes();
+            
+        }
     }
     
     public void adicionarPacientesATabela() {

@@ -81,70 +81,66 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jButtonPesquisar" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabelDataDeNascimento" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jDateDataNascimento" min="-2" pref="160" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabelCargo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelEmail" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelUnidadeDeSaude" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jLabelNomeUsuario" max="32767" attributes="0"/>
+                                      <Component id="jLabelNomeUsuario1" min="-2" pref="31" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jTextFieldId" alignment="0" min="-2" pref="144" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldNomeUsuario" alignment="0" min="-2" pref="326" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jRadioButtonAtendente" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jRadioButtonAdministrador" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="jTextFieldEmail" alignment="0" min="-2" pref="326" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldSenha" alignment="0" min="-2" pref="326" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="0" pref="71" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonVoltar" min="-2" pref="95" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="jButtonAtualizar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                       <Component id="jButtonExcluir" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                       <Component id="jButtonCadastrar" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="0" pref="11" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabelCargo" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jRadioButtonAtendente" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jRadioButtonAdministrador" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabelEmail" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jTextFieldEmail" min="-2" pref="326" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabelUnidadeDeSaude" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jTextFieldSenha" min="-2" pref="326" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="jLabelDataDeNascimento" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jDateDataNascimento" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jLabelNomeUsuario" max="32767" attributes="0"/>
-                                      <Component id="jLabelNomeUsuario1" max="32767" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jTextFieldId" min="-2" pref="144" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldNomeUsuario" min="-2" pref="326" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Component id="jButtonPesquisar" alignment="1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace pref="14" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="jButtonPesquisar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jTextFieldId" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelNomeUsuario1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -155,7 +151,7 @@
                   <Component id="jTextFieldNomeUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="jDateDataNascimento" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelDataDeNascimento" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -175,7 +171,7 @@
                   <Component id="jLabelUnidadeDeSaude" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jTextFieldSenha" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="47" max="32767" attributes="0"/>
+              <EmptySpace pref="43" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButtonExcluir" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonAtualizar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -190,7 +186,7 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabelNomeUsuario">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Nome"/>
+        <Property name="text" type="java.lang.String" value="Nome:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldNomeUsuario">
@@ -200,19 +196,19 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelDataDeNascimento">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Data De Nascimento"/>
+        <Property name="text" type="java.lang.String" value="Data de Nascimento:"/>
       </Properties>
     </Component>
     <Component class="com.toedter.calendar.JDateChooser" name="jDateDataNascimento">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelCargo">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cargo"/>
+        <Property name="text" type="java.lang.String" value="Cargo:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelEmail">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Email"/>
+        <Property name="text" type="java.lang.String" value="Email:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldEmail">
@@ -222,7 +218,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelUnidadeDeSaude">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Senha"/>
+        <Property name="text" type="java.lang.String" value="Senha:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldSenha">
@@ -232,6 +228,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButtonVoltar">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="Tema.corBotao" type="code"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Voltar"/>
       </Properties>
       <Events>
@@ -240,6 +239,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButtonCadastrar">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="Tema.corBotao" type="code"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Cadastrar"/>
       </Properties>
       <Events>
@@ -270,6 +272,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButtonAtualizar">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="Tema.corBotao" type="code"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Atualizar"/>
       </Properties>
       <Events>
@@ -278,6 +283,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButtonExcluir">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="Tema.corBotao" type="code"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Excluir"/>
       </Properties>
       <Events>
@@ -286,6 +294,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButtonPesquisar">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="Tema.corBotao" type="code"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Pesquisar"/>
       </Properties>
       <Events>

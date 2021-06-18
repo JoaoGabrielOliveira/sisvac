@@ -88,6 +88,9 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="jButtonVacinar">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="Tema.corBotao" type="code"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Confirmar Vacina&#xe7;&#xe3;o"/>
           </Properties>
           <Events>
@@ -96,6 +99,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonAusentar">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="Tema.corBotao" type="code"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Paciente Ausente"/>
           </Properties>
           <Events>
@@ -220,6 +226,9 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButtonSair">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="Tema.corBotao" type="code"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Sair"/>
           </Properties>
           <Events>
@@ -323,6 +332,9 @@
         </Container>
         <Component class="javax.swing.JButton" name="jButtonAtualizar">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="Tema.corBotao" type="code"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Atualizar fila"/>
           </Properties>
           <Events>

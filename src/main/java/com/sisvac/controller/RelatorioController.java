@@ -37,4 +37,8 @@ public class RelatorioController {
         return this.relatorioAtual;
     }
     
+    public void setRelatorioAtual(Integer indice){
+        this.relatorioAtual = this.relatorios[indice];
+    }
+    
 }

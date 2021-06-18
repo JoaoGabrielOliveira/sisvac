@@ -46,6 +46,7 @@ public class Relatorio extends javax.swing.JFrame {
             }
         });
 
+        jButtonVoltar.setBackground(Tema.corBotao);
         jButtonVoltar.setText("Voltar");
         jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -55,17 +56,7 @@ public class Relatorio extends javax.swing.JFrame {
 
         panelRelatorio.setBackground(new java.awt.Color(204, 204, 204));
 
-        javax.swing.GroupLayout panelRelatorioLayout = new javax.swing.GroupLayout(panelRelatorio);
-        panelRelatorio.setLayout(panelRelatorioLayout);
-        panelRelatorioLayout.setHorizontalGroup(
-            panelRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        panelRelatorioLayout.setVerticalGroup(
-            panelRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
+        jComboBoxRelatorios.setBackground(new java.awt.Color(233, 233, 233));
         jComboBoxRelatorios.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Relatorios" }));
         jComboBoxRelatorios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,16 +86,13 @@ public class Relatorio extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jComboBoxRelatorios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonVoltar)
                     .addComponent(jLabel1))
                 .addGap(18, 18, 18)
                 .addComponent(panelRelatorio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(jButtonVoltar)
-                .addGap(350, 350, 350))
         );
 
         pack();
@@ -116,18 +104,43 @@ public class Relatorio extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonVoltarActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
         this.atualizarRelatoriosDisponiveis();
+        this.atualizarRelatorioAtual();
+        this.renderizarPainel();
     }//GEN-LAST:event_formWindowOpened
 
     private void jComboBoxRelatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxRelatoriosActionPerformed
+        Integer indice = this.jComboBoxRelatorios.getSelectedIndex();
+        this.relatorioController.setRelatorioAtual(indice);
         
+        this.atualizarRelatorioAtual();
+        this.renderizarPainel();
     }//GEN-LAST:event_jComboBoxRelatoriosActionPerformed
 
     private void atualizarRelatoriosDisponiveis(){
         jComboBoxRelatorios.setModel(new javax.swing.DefaultComboBoxModel<>( this.relatorioController.getTitulos() ));
     }
     
+    private void renderizarPainel(){
+        this.panelRelatorio.removeAll();
+        
+        javax.swing.JPanel painel = this.relatorioController.getRelatorioAtual().getPainel();
+        
+        this.panelRelatorio.add(painel);
+        
+        this.panelRelatorio.repaint();
+        
+        this.repaint(this.getX(), this.getY() - (painel.getHeight() / 2), painel.getWidth() , this.getHeight() + painel.getHeight());
+        this.validate();
+        this.pack();
+    }
+    
+    private void atualizarRelatorioAtual(){        
+        Integer indice = this.jComboBoxRelatorios.getSelectedIndex();
+        this.relatorioController.setRelatorioAtual(indice);
+        
+
+    }
     /**
      * @param args the command line arguments
      */

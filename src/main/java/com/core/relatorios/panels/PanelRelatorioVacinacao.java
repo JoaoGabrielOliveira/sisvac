@@ -6,6 +6,8 @@
 package com.core.relatorios.panels;
 import javax.swing.JOptionPane;
 import com.core.relatorios.RelatorioVacinacao;
+import java.time.LocalDate;
+import java.time.Period;
 /**
  *
  * @author Joao Conceicao
@@ -154,6 +156,7 @@ public class PanelRelatorioVacinacao extends javax.swing.JPanel {
 
     private void jButtonCalcMediaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCalcMediaActionPerformed
         try {
+            this.validarCampos();
             this.relatorio.limparParams();
             this.relatorio.execute(this.jDateDtInicio.getDate(), this.jDateDtFinal.getDate());
         } catch (Exception ex) {
@@ -165,7 +168,26 @@ public class PanelRelatorioVacinacao extends javax.swing.JPanel {
         this.jTextFieldEntre50e69.setText(this.relatorio.getEntre50e70().toString());
         this.jTextFieldMenor50.setText(this.relatorio.getMenorOuIgual50().toString());
     }//GEN-LAST:event_jButtonCalcMediaActionPerformed
+    
+    private void validarCampos() throws Exception {
+        String erro = "";
 
+        if(this.jDateDtInicio.getDate() == null){
+            erro += "O campo Data Inicial precisa ser preenchido.\n";
+        }
+        
+        if(this.jDateDtFinal.getDate() == null){
+            erro += "O campo Data Final precisa ser preenchido.\n";
+        }
+        
+        if(this.jDateDtFinal.getDate().getTime() < this.jDateDtInicio.getDate().getTime()){
+            erro += "A Data Final não pode ser menor que a Data Inicial\n";
+        }
+        
+        if(!erro.isEmpty()){
+            throw new Exception(erro);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCalcMedia;

@@ -39,12 +39,13 @@ public class Menu extends javax.swing.JFrame {
         cardRelatorio = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jButtonRelatorio = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SisVac - Menu");
         setBackground(new java.awt.Color(204, 255, 204));
 
-        jButton6.setBackground(new java.awt.Color(233, 233, 233));
+        jButton6.setBackground(Tema.corBotao);
         jButton6.setText("Sair");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -53,25 +54,17 @@ public class Menu extends javax.swing.JFrame {
         });
 
         cardUsuario.setBackground(new java.awt.Color(204, 204, 204));
-        cardUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        cardUsuario.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                cardUsuarioAncestorAdded(evt);
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
+        cardUsuario.setToolTipText("Cadastro de Usuarios");
+        cardUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cardUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 cardUsuarioMouseClicked(evt);
             }
         });
 
-        jButtonCadastroDeUsuario.setBackground(new java.awt.Color(233, 233, 233));
+        jButtonCadastroDeUsuario.setBackground(Tema.corBotao);
         jButtonCadastroDeUsuario.setText("Cadastro de Usuarios");
-        jButtonCadastroDeUsuario.setToolTipText("Cadastro de Usuarios");
+        jButtonCadastroDeUsuario.setToolTipText("");
         jButtonCadastroDeUsuario.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButtonCadastroDeUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonCadastroDeUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -106,14 +99,20 @@ public class Menu extends javax.swing.JFrame {
         );
 
         cardPaciente.setBackground(new java.awt.Color(204, 204, 204));
-        cardPaciente.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        cardPaciente.setToolTipText("Cadastro de Pacientes");
+        cardPaciente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cardPaciente.setPreferredSize(new java.awt.Dimension(170, 170));
+        cardPaciente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cardPacienteMouseClicked(evt);
+            }
+        });
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Joao Conceicao\\Documents\\ProjetosParalelos\\SisVac\\src\\main\\java\\img\\icons\\injecao.png")); // NOI18N
         jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jButtonCadastroDePacientes.setBackground(new java.awt.Color(233, 233, 233));
+        jButtonCadastroDePacientes.setBackground(Tema.corBotao);
         jButtonCadastroDePacientes.setText("Cadastro de Pacientes");
         jButtonCadastroDePacientes.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButtonCadastroDePacientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -145,13 +144,20 @@ public class Menu extends javax.swing.JFrame {
         );
 
         cardRelatorio.setBackground(new java.awt.Color(204, 204, 204));
-        cardRelatorio.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        cardRelatorio.setToolTipText("Relatório");
+        cardRelatorio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cardRelatorio.setPreferredSize(new java.awt.Dimension(170, 170));
+        cardRelatorio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cardRelatorioMouseClicked(evt);
+            }
+        });
 
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Joao Conceicao\\Documents\\ProjetosParalelos\\SisVac\\src\\main\\java\\img\\icons\\relatorio-medico.png")); // NOI18N
         jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jButtonRelatorio.setBackground(new java.awt.Color(233, 233, 233));
+        jButtonRelatorio.setBackground(Tema.corBotao);
         jButtonRelatorio.setText("Relatório");
         jButtonRelatorio.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButtonRelatorio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -182,32 +188,39 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel3.setText("SisVac");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(cardUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(cardPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(cardRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabel3)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(cardUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addComponent(cardPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(cardRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(67, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cardPaciente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cardUsuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cardRelatorio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(cardPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cardUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cardRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jButton6)
                 .addContainerGap())
         );
@@ -217,7 +230,7 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonCadastroDeUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastroDeUsuarioActionPerformed
-
+        new CadastroDeUsuario().setVisible(true);
     }//GEN-LAST:event_jButtonCadastroDeUsuarioActionPerformed
 
     private void jButtonCadastroDePacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastroDePacientesActionPerformed
@@ -232,13 +245,17 @@ public class Menu extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void cardUsuarioAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_cardUsuarioAncestorAdded
-        
-    }//GEN-LAST:event_cardUsuarioAncestorAdded
-
     private void cardUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cardUsuarioMouseClicked
-        new CadastroDeUsuario().setVisible(true);
+        this.jButtonCadastroDeUsuario.doClick();
     }//GEN-LAST:event_cardUsuarioMouseClicked
+
+    private void cardPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cardPacienteMouseClicked
+        this.jButtonCadastroDePacientes.doClick();
+    }//GEN-LAST:event_cardPacienteMouseClicked
+
+    private void cardRelatorioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cardRelatorioMouseClicked
+        this.jButtonRelatorio.doClick();
+    }//GEN-LAST:event_cardRelatorioMouseClicked
 
     /**
      * @param args the command line arguments
@@ -285,6 +302,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton jButtonRelatorio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
 }

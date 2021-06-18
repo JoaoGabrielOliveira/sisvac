@@ -55,14 +55,18 @@ public class CadastroDePacientes extends javax.swing.JFrame {
 
         jLabelDataNascimento.setText("Data de Nascimento");
 
+        jButtonVoltar.setBackground(Tema.corBotao);
         jButtonVoltar.setText("Voltar");
+        jButtonVoltar.setToolTipText("Voltar");
         jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonVoltarActionPerformed(evt);
             }
         });
 
+        jButtonCadastrar.setBackground(Tema.corBotao);
         jButtonCadastrar.setText("Cadastrar");
+        jButtonCadastrar.setToolTipText("Cadastrar");
         jButtonCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCadastrarActionPerformed(evt);
