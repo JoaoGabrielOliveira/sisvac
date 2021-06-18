@@ -430,8 +430,8 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
         if(!this.jRadioButtonAdministrador.isSelected() && !this.jRadioButtonAtendente.isSelected());
             error += "Cargo não foi selecionado!\n";
             
-        if(this.jDateDataNascimento.getDate() == null);
-            error += "Campo Data de Nascimento está vazio!\n";
+        //if(this.jDateDataNascimento.getDate() == null);
+            //error += "Campo Data de Nascimento está vazio!\n";
         
         if(this.jTextFieldEmail.getText().isEmpty())
             error += "Campo E-mail está vazio!\n";

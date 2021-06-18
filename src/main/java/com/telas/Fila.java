@@ -310,6 +310,7 @@ public class Fila extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonVacinarActionPerformed
 
     private void jButtonAusentarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAusentarActionPerformed
+        JOptionPane.showMessageDialog(null, "Paciente: " + this.filaController.getPacienteAtual().getNome(), "Paciente Ausente", JOptionPane.INFORMATION_MESSAGE );
         this.filaController.proximoFila();
         this.atualizarTabela();
         this.atualizarPaciente(this.filaController.getPacienteAtual());

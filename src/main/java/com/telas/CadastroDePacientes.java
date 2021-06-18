@@ -55,6 +55,9 @@ public class CadastroDePacientes extends javax.swing.JFrame {
 
         jLabelDataNascimento.setText("Data de Nascimento");
 
+        jDateDataNascimento.setMaxSelectableDate(new java.util.Date(253370779274000L));
+        jDateDataNascimento.setMinSelectableDate(new java.util.Date(-2208974326000L));
+
         jButtonVoltar.setBackground(Tema.corBotao);
         jButtonVoltar.setText("Voltar");
         jButtonVoltar.setToolTipText("Voltar");
@@ -228,9 +231,9 @@ public class CadastroDePacientes extends javax.swing.JFrame {
         if(this.jTextFieldNomePaciente.getText().isEmpty())
             error += "Campo paciente está vazio!\n";
         
-        if(this.jDateDataNascimento.getDate() == null);
-            error += "Campo Data de Nascimento está vazio!\n";
-        
+        //if(data != null);
+        //    error += "Campo Data de Nascimento está vazio!\n";
+            
         if(this.jTextFieldCEP.getText().isEmpty())
             error += "Campo CEP está vazio!\n";
         
