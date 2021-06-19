@@ -23,10 +23,7 @@ public class LoginController {
     
     public static void login(String email, String senha){
         Service<Funcionario> service = new Service(Funcionario.class);
-        
-        //Find vai procurar apenas pela chave primaria
-        //service.find(1);
-        
+
         try{
             LoginController.funcionarioLogado = service.findBy("email,senha", email, senha);
 

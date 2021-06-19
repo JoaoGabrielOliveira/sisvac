@@ -400,6 +400,10 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
         }
         this.id = funcionario.getId();
         
+        if("adm".equalsIgnoreCase(funcionario.getCargo()))
+            this.jRadioButtonAdministrador.setSelected(true);
+        else
+            this.jRadioButtonAtendente.setSelected(true);
         
         this.jTextFieldId.setText(funcionario.getId().toString());
         this.jTextFieldNomeUsuario.setText(funcionario.getNome());
@@ -426,9 +430,6 @@ public class CadastroDeUsuario extends javax.swing.JFrame {
         String error = "";
         if(this.jTextFieldNomeUsuario.getText().isEmpty())
             error += "Campo nome está vazio!\n";
-        
-        if(!this.jRadioButtonAdministrador.isSelected() && !this.jRadioButtonAtendente.isSelected());
-            error += "Cargo não foi selecionado!\n";
             
         //if(this.jDateDataNascimento.getDate() == null);
             //error += "Campo Data de Nascimento está vazio!\n";

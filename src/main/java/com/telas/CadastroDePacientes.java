@@ -237,6 +237,9 @@ public class CadastroDePacientes extends javax.swing.JFrame {
         if(this.jTextFieldCEP.getText().isEmpty())
             error += "Campo CEP está vazio!\n";
         
+        if(this.jTextFieldCEP.getText().length() == 10)
+            error += "Campo CEP não é valido!\n";
+        
         if(this.jTextFieldNumero.getText().isEmpty())
             error += "Campo número está vazio!\n";
         
